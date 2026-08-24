@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Lavan Solar Systems',
     description: 'We design and deliver solar systems that solve real energy challenges through quality equipment, practical engineering, and transparent advice.',
-    images: ['/images/open-graphs/og-about.jpg'], // Fixed path
+    images: ['/images/open-graphs/og-about.jpg'],
     url: 'https://lavansolar.co.ke/about',
     siteName: 'Lavan Solar Systems',
     locale: 'en_KE',
@@ -35,9 +35,16 @@ export default function About() {
             Our mission is to design and deliver solar systems that solve real energy challenges through quality equipment, practical engineering, transparent advice, and responsive support.
           </p>
           
+          {/* Updated Vision from CEO */}
           <h2 className="text-2xl font-bold mt-8 mb-4 text-navy">Our Vision</h2>
           <p className="text-gray-700">
-            To be a trusted solar energy partner in Kenya by making reliable, cost-effective, and sustainable power accessible to more homes and businesses.
+            To become a trusted energy engineering company known for designing and delivering reliable, intelligent and high-performing energy systems for homes and businesses.
+          </p>
+          
+          {/* Updated Mission from CEO */}
+          <h2 className="text-2xl font-bold mt-8 mb-4 text-navy">Our Mission</h2>
+          <p className="text-gray-700">
+            To help clients make better energy investments by combining engineering, quality equipment, professional installation and long-term system performance.
           </p>
           
           <h2 className="text-2xl font-bold mt-8 mb-4 text-navy">What We Solve</h2>

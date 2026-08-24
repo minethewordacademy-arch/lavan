@@ -1,5 +1,9 @@
 export const projects = [
-  { slug: 'katani-solar-water', title: 'Solar water heating solution', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp', video: '/videos/water-heating-roof.mp4' },
+  // Katani Road has two different sites (Seven SS image & Suntech video)
+  { slug: 'katani-solar-water', title: 'Solar water heating solution - Seven SS', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp' },
+  { slug: 'katani-suntech-video', title: 'Solar water heating system - Suntech', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp', video: '/videos/water-heating-roof.mp4' },
+  
+  // Other existing projects
   { slug: 'awendo-solar-water', title: 'Solar water heating solution', location: 'Awendo, Migori County', image: '/images/projects/awendo-solarWater.webp' },
   { slug: 'migori-residential-solar', title: 'Residential solar power system', location: 'Migori County', image: '/images/projects/migori-residentialSolar.webp' },
   { slug: 'nyamira-residential-solar', title: 'Residential hybrid solar power system', location: 'Nyamira County', image: '/images/projects/nyamira-residentialSolar.webp' },
