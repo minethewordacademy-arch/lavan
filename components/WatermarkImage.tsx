@@ -10,6 +10,7 @@ interface WatermarkImageProps {
   sizes?: string;
   priority?: boolean;
   fill?: boolean;
+  loading?: 'eager' | 'lazy';
   watermarkSize?: number;
   watermarkPosition?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right' | 'center';
   watermarkStyle?: 'corner' | 'seal';
@@ -24,6 +25,7 @@ export default function WatermarkImage({
   sizes = '(max-width: 768px) 100vw, 50vw',
   priority = false,
   fill = false,
+  loading,
   watermarkSize = 80,
   watermarkPosition = 'bottom-right',
   watermarkStyle = 'corner',
@@ -46,6 +48,7 @@ export default function WatermarkImage({
         fill={fill}
         sizes={sizes}
         priority={priority}
+        loading={loading}
         className={fill ? 'object-cover object-center' : 'w-full h-auto object-cover'}
       />
       
@@ -61,7 +64,6 @@ export default function WatermarkImage({
           />
         </div>
       ) : (
-        // Seal Watermark (iStock style) - Large, centered, semi-transparent
         <div className="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20 z-10">
           <div className="border-4 border-white/30 rounded-full p-4">
             <Image

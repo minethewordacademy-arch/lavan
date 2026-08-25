@@ -51,11 +51,11 @@ function QuoteForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-navy mb-1">Full Name *</label>
-                <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="John Doe" />
+                <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="Wesley Senda" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-navy mb-1">Email Address *</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="john@example.com" />
+                <input type="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="wesley@example.com" />
               </div>
             </div>
             

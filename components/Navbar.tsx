@@ -12,7 +12,6 @@ const mainLinks = [
   { href: '/blog', label: 'Blog' },
 ];
 
-// Tier 2 Divisions (with direct sub-links)
 const divisions = [
   {
     href: '/services/energy-engineering',
@@ -25,8 +24,7 @@ const divisions = [
     ],
   },
   {
-    // CHANGED LABEL HERE
-    href: '/services/energy-systems', // internal route can stay same, or change to /services/solar-pv if desired
+    href: '/services/energy-systems',
     label: 'Solar PV Systems',
     services: [
       { label: 'Solar PV Systems', href: '/services/solar-pv' },
@@ -55,9 +53,20 @@ export default function Navbar() {
       <header className="fixed top-0 w-full z-50 shadow-md">
         <nav className="bg-white">
           <div className="container mx-auto flex items-center justify-between h-20 px-4">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.JPG" alt="Lavan Solar Systems" width={200} height={60} className="object-contain h-12 md:h-16 w-auto" style={{ width: 'auto', height: 'auto' }} />
+            {/* ✅ BULLETPROOF LOGO FIX */}
+            <Link href="/" className="flex items-center">
+              <div className="relative h-12 md:h-16 w-48 md:w-64">
+                <Image
+                  src="/logo.JPG"
+                  alt="Lavan Solar Systems"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 192px, 256px"
+                  priority
+                />
+              </div>
             </Link>
+
             <ul className="hidden md:flex space-x-8 items-center">
               {mainLinks.map((link) => (
                 <li key={link.href}>
@@ -71,6 +80,7 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+
         <nav className="hidden md:block bg-navy">
           <div className="container mx-auto flex items-center justify-center h-14 space-x-12">
             {divisions.map((division) => (
