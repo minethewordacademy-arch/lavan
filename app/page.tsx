@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       {/* Split Hero Section */}
-      <section className="pt-36 md:pt-40 bg-linear-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
+      <section className="pt-36 md:pt-40 bg-gradient-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Left Text */}
           <div className="z-10">
@@ -64,11 +64,17 @@ export default function Home() {
                     }`}
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                   >
-                    <WatermarkImage src={slide.src} alt={slide.alt} fill watermarkSize={70} watermarkPosition="bottom-right" />
+                    <WatermarkImage
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      watermarkSize={80}
+                      watermarkStyle="seal"
+                    />
                   </div>
                 ))}
               </div>
-              <div className="absolute inset-0 bg-linear-to-t from-navy/30 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
                 {slides.map((_, index) => (
                   <button

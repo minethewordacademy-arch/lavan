@@ -27,7 +27,14 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition group border-b-4 border-gold">
               <div className="relative w-full h-64 overflow-hidden">
-                <WatermarkImage src={project.image} alt={project.title} fill watermarkSize={80} watermarkPosition="bottom-right" className="group-hover:scale-105 transition duration-500" />
+                <WatermarkImage
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  watermarkSize={90}
+                  watermarkStyle="seal"
+                  className="group-hover:scale-105 transition duration-500"
+                />
                 {project.video && (
                   <div className="absolute top-2 left-2 z-10 bg-gold text-navy text-xs font-bold px-2 py-1 rounded-full">
                     ▶ Video

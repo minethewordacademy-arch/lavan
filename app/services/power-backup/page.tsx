@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
   title: 'Power Backup Systems | Lavan Solar Systems',
@@ -10,8 +10,14 @@ export const metadata: Metadata = {
 export default function PowerBackupPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
-      <section className="relative h-[400px] overflow-hidden">
-        <Image src="/images/projects/nyamira-residentialSolar.webp" alt="Power Backup" fill className="object-cover" />
+      <section className="relative h-100 overflow-hidden">
+        <WatermarkImage 
+          src="/images/services/solar-pv/batterystorage.jpg" 
+          alt="Power Backup" 
+          fill 
+          watermarkSize={100} 
+          watermarkStyle="seal" 
+        />
         <div className="absolute inset-0 bg-navy/70 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">Power Backup Systems</h1>

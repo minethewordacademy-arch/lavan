@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
   title: 'Our Services | Lavan Solar Systems',
-  description: 'Explore our core divisions: Energy Engineering, Energy Systems, Thermal Energy, and their specialized solutions.',
+  description: 'Explore our core divisions: Energy Engineering, Solar PV Systems, Thermal Energy, and their specialized solutions.',
 };
 
 export default function ServicesPage() {
@@ -23,19 +23,25 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Link href="/services/energy-engineering" className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition border-b-4 border-gold">
-              <Image src="/images/projects/kajiado-commercialSolar.webp" alt="Energy Engineering" width={400} height={200} className="rounded-xl mb-6 object-cover h-40 w-full" />
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-6">
+                <WatermarkImage src="/images/projects/kajiado-commercialSolar.webp" alt="Energy Engineering" fill watermarkSize={60} watermarkPosition="bottom-right" />
+              </div>
               <h3 className="text-2xl font-extrabold text-navy mb-3">Energy Engineering</h3>
               <p className="text-gray-600 mb-6">Audits, assessments, system design, and consultancy. The intellectual foundation of Lavan.</p>
               <span className="text-gold font-bold">Explore →</span>
             </Link>
             <Link href="/services/energy-systems" className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition border-b-4 border-gold">
-              <Image src="/images/projects/laikipia-dairyPlantSolar.webp" alt="Energy Systems" width={400} height={200} className="rounded-xl mb-6 object-cover h-40 w-full" />
-              <h3 className="text-2xl font-extrabold text-navy mb-3">Energy Systems</h3>
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-6">
+                <WatermarkImage src="/images/projects/laikipia-dairyPlantSolar.webp" alt="Solar PV Systems" fill watermarkSize={60} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-2xl font-extrabold text-navy mb-3">Solar PV Systems</h3>
               <p className="text-gray-600 mb-6">Solar PV, Hybrid, Battery Storage, and Backup Power systems that run your world.</p>
               <span className="text-gold font-bold">Explore →</span>
             </Link>
             <Link href="/services/thermal-energy" className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition border-b-4 border-gold">
-              <Image src="/images/projects/kiambu-heatPump.webp" alt="Thermal Energy" width={400} height={200} className="rounded-xl mb-6 object-cover h-40 w-full" />
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-6">
+                <WatermarkImage src="/images/projects/kiambu-heatPump.webp" alt="Thermal Energy" fill watermarkSize={60} watermarkPosition="bottom-right" />
+              </div>
               <h3 className="text-2xl font-extrabold text-navy mb-3">Thermal Energy</h3>
               <p className="text-gray-600 mb-6">Solar water heating, heat pumps, and commercial hot-water systems for every need.</p>
               <span className="text-gold font-bold">Explore →</span>

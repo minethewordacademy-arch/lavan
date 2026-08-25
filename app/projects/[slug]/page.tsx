@@ -51,7 +51,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         ) : (
           <div className="relative w-full h-100 md:h-125 rounded-3xl overflow-hidden shadow-2xl mb-8 border-4 border-white/10">
-            <WatermarkImage src={project.image} alt={project.title} fill watermarkSize={100} watermarkPosition="bottom-right" />
+            <WatermarkImage
+              src={project.image}
+              alt={project.title}
+              fill
+              watermarkSize={120}
+              watermarkStyle="seal"
+            />
           </div>
         )}
 

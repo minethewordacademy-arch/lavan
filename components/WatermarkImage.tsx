@@ -12,6 +12,7 @@ interface WatermarkImageProps {
   fill?: boolean;
   watermarkSize?: number;
   watermarkPosition?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right' | 'center';
+  watermarkStyle?: 'corner' | 'seal';
 }
 
 export default function WatermarkImage({
@@ -20,11 +21,12 @@ export default function WatermarkImage({
   width,
   height,
   className = '',
-  sizes = '(max-width: 768px) 100vw, 50vw', // Default for fill usage
+  sizes = '(max-width: 768px) 100vw, 50vw',
   priority = false,
   fill = false,
   watermarkSize = 80,
   watermarkPosition = 'bottom-right',
+  watermarkStyle = 'corner',
 }: WatermarkImageProps) {
   const positionClasses = {
     'bottom-left': 'bottom-2 left-2',
@@ -46,16 +48,33 @@ export default function WatermarkImage({
         priority={priority}
         className={fill ? 'object-cover object-center' : 'w-full h-auto object-cover'}
       />
-      <div className={`pointer-events-none absolute ${positionClasses[watermarkPosition]} opacity-30 z-10`}>
-        <Image
-          src="/logo.JPG"
-          alt="Lavan Solar Systems"
-          width={watermarkSize}
-          height={Math.round(watermarkSize * 0.4)}
-          className="object-contain"
-          style={{ width: 'auto', height: 'auto' }} // Fixes aspect ratio warning
-        />
-      </div>
+      
+      {watermarkStyle === 'corner' ? (
+        <div className={`pointer-events-none absolute ${positionClasses[watermarkPosition]} opacity-30 z-10`}>
+          <Image
+            src="/logo.JPG"
+            alt="Lavan Solar Systems"
+            width={watermarkSize}
+            height={Math.round(watermarkSize * 0.4)}
+            className="object-contain"
+            style={{ width: 'auto', height: 'auto' }}
+          />
+        </div>
+      ) : (
+        // Seal Watermark (iStock style) - Large, centered, semi-transparent
+        <div className="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20 z-10">
+          <div className="border-4 border-white/30 rounded-full p-4">
+            <Image
+              src="/logo.JPG"
+              alt="Lavan Solar Systems"
+              width={watermarkSize * 1.5}
+              height={Math.round(watermarkSize * 0.6)}
+              className="object-contain"
+              style={{ width: 'auto', height: 'auto' }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

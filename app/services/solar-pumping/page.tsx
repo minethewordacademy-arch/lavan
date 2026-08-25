@@ -10,9 +10,15 @@ export const metadata: Metadata = {
 export default function SolarPumpingPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
-      {/* Hero - Using the correct borehole image */}
+      {/* Hero */}
       <section className="relative h-100 overflow-hidden">
-        <WatermarkImage src="/images/projects/kiambu-borehole.webp" alt="Borehole Solarization" fill watermarkSize={100} watermarkPosition="bottom-right" />
+        <WatermarkImage 
+          src="/images/services/energy-engineering/solarpanel-on-stand.jpg" 
+          alt="Borehole Solarization" 
+          fill 
+          watermarkSize={100} 
+          watermarkStyle="seal" 
+        />
         <div className="absolute inset-0 bg-navy/70 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">Borehole Solarization Solutions</h1>

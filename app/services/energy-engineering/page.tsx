@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
+import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
   title: 'Energy Engineering | Lavan Solar Systems',
@@ -11,8 +11,14 @@ export default function EnergyEngineeringPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
       {/* Hero Section */}
-      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
-        <Image src="/images/projects/laikipia-dairyPlantSolar.webp" alt="Energy Engineering" fill className="object-cover" />
+      <div className="relative h-100 md:h-125 overflow-hidden">
+        <WatermarkImage 
+          src="/images/services/energy-engineering/solarpanel-engineering.jpg" 
+          alt="Energy Engineering" 
+          fill 
+          watermarkSize={100} 
+          watermarkStyle="seal" 
+        />
         <div className="absolute inset-0 bg-navy/70 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4">Energy Engineering</h1>
@@ -66,7 +72,7 @@ export default function EnergyEngineeringPage() {
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-6 text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Need Expert Advice Before Buying Solar?</h2>
-          <p className="text-white/80 mb-8">Let our engineers design the perfect system for you. We'll ensure you invest in the right solution for current and future needs.</p>
+          <p className="text-white/80 mb-8">Let our engineers design the perfect system for you. We&apos;ll ensure you invest in the right solution for current and future needs.</p>
           <Link href="/quote?service=energy-engineering" className="bg-gold text-navy px-10 py-4 rounded-full font-bold hover:bg-white transition text-lg">
             Get an Engineering Quote
           </Link>
