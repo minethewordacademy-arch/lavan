@@ -35,10 +35,9 @@ export default function SolarPVPage() {
           <p className="text-gray-700 text-lg mb-6">
             We are calling upon all those farsighted individuals and corporates who believe in sound investments and business plans.
           </p>
-          <div className="bg-gold text-navy p-8 rounded-3xl font-extrabold text-2xl text-center my-10">
-            With prices starting from as little as $1 per watt, we believe we can bring solar to your home and business anywhere in the country.
-          </div>
-          <p className="text-gray-700 mb-8">Let us help you make your dreams of independence from unreliable and expensive power supplies reality.</p>
+          <p className="text-gray-700 mb-8">
+            Let us help you make your dreams of independence from unreliable and expensive power supplies reality.
+          </p>
           <Link href="/quote?service=solar-pv" className="block text-center bg-navy text-white py-5 rounded-full font-bold hover:bg-gold hover:text-navy transition max-w-sm mx-auto text-lg">Get a Quote for Solar PV</Link>
         </div>
       </section>

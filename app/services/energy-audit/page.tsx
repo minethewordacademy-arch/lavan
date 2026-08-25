@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function EnergyAuditPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
-      <section className="relative h-[400px] overflow-hidden">
+      <section className="relative h-100 overflow-hidden">
         <Image src="/images/projects/katani-solarWater.webp" alt="Energy Audit" fill className="object-cover" />
         <div className="absolute inset-0 bg-navy/70 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">

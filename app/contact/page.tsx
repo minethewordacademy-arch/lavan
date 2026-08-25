@@ -62,7 +62,7 @@ export default function ContactPage() {
                 <span className="text-gold text-2xl">🕒</span>
                 <div>
                   <p className="text-sm text-white/60">Working Hours</p>
-                  <p className="font-bold">Sun – Fri: 8:00 AM – 6:00 PM</p>
+                  <p className="font-bold">Sun – Fri: 8:00 AM – 5:00 PM</p>
                 </div>
               </li>
             </ul>

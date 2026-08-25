@@ -45,6 +45,7 @@ export default function EnergyEngineeringPage() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">Our Engineering Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
+               { title: 'Independent Technical Reviews', desc: 'Third-party technical audits and reviews of planned or installed systems for banks, developers, and institutions.' },
               { title: 'Energy Audits', desc: 'Comprehensive assessment of your current energy consumption patterns, identifying inefficiencies and opportunities for savings.' },
               { title: 'Load Assessments & Profiling', desc: 'Detailed analysis of your electrical loads to understand peak demand, usage patterns, and system sizing requirements.' },
               { title: 'Energy Feasibility Studies', desc: 'Technical and financial feasibility studies to determine the viability and ROI of solar investments.' },
@@ -55,7 +56,6 @@ export default function EnergyEngineeringPage() {
               { title: 'Solar Pumping System Design', desc: 'Surface and submersible pump system design for boreholes, farms, and community water projects.' },
               { title: 'Power Backup System Design', desc: 'Critical backup power systems for homes and businesses, ensuring zero downtime during outages.' },
               { title: 'Performance Assessment', desc: 'Monitoring and evaluation of existing systems to ensure they operate at peak efficiency.' },
-              { title: 'Independent Technical Reviews', desc: 'Third-party technical audits and reviews of planned or installed systems for banks, developers, and institutions.' },
               { title: 'Troubleshooting', desc: 'Diagnosis and repair of poorly performing solar systems, restoring your investment quickly.' },
             ].map((service) => (
               <div key={service.title} className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-gold hover:shadow-2xl transition">

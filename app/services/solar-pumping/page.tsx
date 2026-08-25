@@ -42,17 +42,17 @@ export default function SolarPumpingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-light-bg p-8 rounded-2xl shadow-lg border-b-4 border-gold">
-              <div className="text-4xl mb-4 text-gold">💰</div>
+              <div className="w-12 h-1 bg-gold rounded-full mb-6"></div>
               <h3 className="text-xl font-bold text-navy mb-4">Lower Energy Costs</h3>
               <p className="text-gray-600">Solar energy drastically reduces or eliminates the cost of running your borehole on the national grid.</p>
             </div>
             <div className="bg-light-bg p-8 rounded-2xl shadow-lg border-b-4 border-gold">
-              <div className="text-4xl mb-4 text-gold">🛡️</div>
+              <div className="w-12 h-1 bg-gold rounded-full mb-6"></div>
               <h3 className="text-xl font-bold text-navy mb-4">Grid Independence</h3>
               <p className="text-gray-600">Your borehole keeps running even during blackouts or load-shedding, ensuring water is always available.</p>
             </div>
             <div className="bg-light-bg p-8 rounded-2xl shadow-lg border-b-4 border-gold">
-              <div className="text-4xl mb-4 text-gold">🔧</div>
+              <div className="w-12 h-1 bg-gold rounded-full mb-6"></div>
               <h3 className="text-xl font-bold text-navy mb-4">Use Your Existing Pump</h3>
               <p className="text-gray-600">Save money by reusing your existing borehole pump and simply adding solar panels, brackets, and a smart controller.</p>
             </div>

@@ -1,7 +1,7 @@
 export const projects = [
   // Katani Road has two different sites (Seven SS image & Suntech video)
   { slug: 'katani-solar-water', title: 'Solar water heating solution - Seven SS', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp' },
-  { slug: 'katani-suntech-video', title: 'Solar water heating system - Suntech', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp', video: '/videos/water-heating-roof.mp4' },
+  { slug: 'katani-suntech-video', title: 'Solar water heating system - Suntech', location: 'Katani Road, Syokimau', image: '/images/projects/suntech.webp', video: '/videos/water-heating-roof.mp4' },
   
   // Other existing projects
   { slug: 'awendo-solar-water', title: 'Solar water heating solution', location: 'Awendo, Migori County', image: '/images/projects/awendo-solarWater.webp' },
@@ -13,6 +13,6 @@ export const projects = [
   { slug: 'kiambu-heat-pump', title: 'Commercial heat pump water heating solution', location: 'Kiambu County', image: '/images/projects/kiambu-heatPump.webp' },
   { slug: 'kiambu-borehole', title: 'Borehole solar pumping solution', location: 'Kiambu County', image: '/images/projects/kiambu-borehole.webp' },
   { slug: 'kajiado-commercial-solar', title: 'Commercial solar power system', location: 'Kajiado County', image: '/images/projects/kajiado-commercialSolar.webp', video: '/videos/solar-panels-roof.mp4' },
-  { slug: 'isiolo-water-jetting', title: 'Water jetting solution', location: 'Isiolo County', image: '/images/projects/isiolo-waterJetting.webp' },
+  { slug: 'isiolo-water-heating', title: 'Water heating solution', location: 'Isiolo County', image: '/images/projects/isiolo-waterheating.webp' },
   { slug: 'laikipia-dairy-plant-solar', title: 'Dairy plant solar solution', location: 'Laikipia County', image: '/images/projects/laikipia-dairyPlantSolar.webp' },
 ];
