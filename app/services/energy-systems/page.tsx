@@ -4,16 +4,22 @@ import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
   title: 'Solar PV Systems | Lavan Solar Systems',
-  description: 'Solar PV, Hybrid, Grid-tied, Battery Storage, Backup Power, and Solar Pumping systems.',
+  description: 'Grid-Tie, Off-Grid, Hybrid, Power Backup, and Borehole Solarization solutions.',
 };
 
 export default function EnergySystemsPage() {
   const systems = [
     { 
-      label: 'Solar PV Systems', 
-      href: '/services/solar-pv', 
+      label: 'Grid-Tie Solutions', 
+      href: '/services/grid-tie', 
       image: '/images/services/solar-pv/solarpanel-rooftop.jpg', 
-      desc: 'Grid-tie, off-grid, and hybrid PV installations for homes, offices, commercial buildings, institutions, farms, and industrial users seeking cleaner and more predictable power solutions.' 
+      desc: 'Generate electricity while maintaining connection to the grid. Draw from the grid at night or during low solar production, without the need for storage.' 
+    },
+    { 
+      label: 'Off-Grid Solutions', 
+      href: '/services/off-grid', 
+      image: '/images/services/solar-pv/solarpanel1.jpg', 
+      desc: 'Complete energy independence with solar and battery storage. Perfect for remote locations or those seeking to break free from the grid.' 
     },
     { 
       label: 'Hybrid Systems', 
@@ -40,7 +46,7 @@ export default function EnergySystemsPage() {
       <div className="relative h-100 md:h-125 overflow-hidden">
         <WatermarkImage 
           src="/images/services/solar-pv/solarpanel.jpg" 
-          alt="Energy Systems" 
+          alt="Solar PV Systems" 
           fill 
           watermarkSize={100} 
           watermarkStyle="seal" 

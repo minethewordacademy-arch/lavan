@@ -151,6 +151,7 @@ export default function Home() {
               { num: '3', title: 'Proposal & Design', desc: 'We prepare a tailored system recommendation.' },
               { num: '4', title: 'Installation', desc: 'Professional setup with quality workmanship.' },
               { num: '5', title: 'Testing & Handover', desc: 'System commissioned and handed over with support.' },
+              { num: '6', title: 'Operation & Maintenance', desc: 'Ongoing monitoring, maintenance, and warranty support for long-term performance.' },
             ].map((step) => (
               <div key={step.num} className="text-center">
                 <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center text-navy text-2xl font-extrabold mx-auto mb-4 shadow-lg">
