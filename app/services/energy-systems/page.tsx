@@ -4,7 +4,7 @@ import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
   title: 'Solar PV Systems | Lavan Solar Systems',
-  description: 'Grid-Tie, Off-Grid, Hybrid, Power Backup, and Borehole Solarization solutions.',
+  description: 'Grid-Tie, Off-Grid, Hybrid, Power Backup, and Borehole-Solarization solutions.',
 };
 
 export default function EnergySystemsPage() {
