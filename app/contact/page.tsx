@@ -48,7 +48,7 @@ export default function ContactPage() {
                 <span className="text-gold text-2xl">✉️</span>
                 <div>
                   <p className="text-sm text-white/60">Email</p>
-                  <a href="mailto:lavansolar@gmail.com" className="font-bold text-white hover:text-gold">lavansolar@gmail.com</a>
+                  <a href="mailto:lavansolar@gmail.com" className="font-bold text-white hover:text-gold">info@lavansolar.co.ke</a>
                 </div>
               </li>
               <li className="flex items-start gap-4">

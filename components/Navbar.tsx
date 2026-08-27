@@ -6,7 +6,7 @@ import { useState } from 'react';
 const mainLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/products', label: 'Products' },  // ✅ New Link
+  { href: '/products', label: 'Products' },
   { href: '/projects', label: 'Projects' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
@@ -48,40 +48,53 @@ const divisions = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // State for collapse (holds the label of the currently open division, or null)
+  const [openDivision, setOpenDivision] = useState<string | null>(null);
+
+  const toggleDivision = (label: string) => {
+    setOpenDivision(openDivision === label ? null : label);
+  };
 
   return (
     <>
       <header className="fixed top-0 w-full z-50 shadow-md">
+        {/* Top Navbar - Far Left Logo */}
         <nav className="bg-white">
-          <div className="container mx-auto flex items-center justify-between h-20 px-4">
-            {/* ✅ BULLETPROOF LOGO FIX */}
+          <div className="flex items-center justify-between h-16 md:h-20 px-4 md:pl-6 md:pr-8">
+            {/* Smaller Logo - Far Left */}
             <Link href="/" className="flex items-center">
-              <div className="relative h-12 md:h-16 w-48 md:w-64">
+              <div className="relative h-10 md:h-12 w-36 md:w-44">
                 <Image
                   src="/logo.JPG"
                   alt="Lavan Solar Systems"
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 192px, 256px"
+                  className="object-contain object-left"
+                  sizes="(max-width: 768px) 144px, 176px"
                   priority
                 />
               </div>
             </Link>
 
+            {/* Desktop Links */}
             <ul className="hidden md:flex space-x-8 items-center">
               {mainLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="font-medium text-navy hover:text-gold transition">{link.label}</Link>
+                  <Link href={link.href} className="font-medium text-navy hover:text-gold transition">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
-            <Link href="/quote" className="hidden md:inline-block bg-gold text-navy px-6 py-2 rounded-full font-bold hover:bg-navy hover:text-gold transition">Get a Quote</Link>
+
+            {/* Mobile Toggle */}
             <button className="md:hidden text-navy text-3xl" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? '✕' : '☰'}
             </button>
           </div>
         </nav>
 
+        {/* Division Bar (Desktop Only) */}
         <nav className="hidden md:block bg-navy">
           <div className="container mx-auto flex items-center justify-center h-14 space-x-12">
             {divisions.map((division) => (
@@ -94,11 +107,15 @@ export default function Navbar() {
                   <ul className="py-4">
                     {division.services.map((service) => (
                       <li key={service.href + service.label}>
-                        <Link href={service.href} className="block px-6 py-3 text-navy font-medium hover:bg-light-bg hover:text-gold transition">{service.label}</Link>
+                        <Link href={service.href} className="block px-6 py-3 text-navy font-medium hover:bg-light-bg hover:text-gold transition">
+                          {service.label}
+                        </Link>
                       </li>
                     ))}
                     <li className="border-t border-gray-100 mt-2 pt-2">
-                      <Link href={division.href} className="block px-6 py-3 text-gold font-bold hover:bg-light-bg">View All →</Link>
+                      <Link href={division.href} className="block px-6 py-3 text-gold font-bold hover:bg-light-bg">
+                        View All →
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -108,33 +125,56 @@ export default function Navbar() {
         </nav>
       </header>
 
+      {/* Mobile Menu (Collapsible Divisions) */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 md:hidden bg-white overflow-y-auto pt-24 pb-8">
-          <button className="absolute top-6 right-4 text-navy text-4xl" onClick={() => setIsOpen(false)} aria-label="Close menu">✕</button>
+        <div className="fixed inset-0 z-50 md:hidden bg-white overflow-y-auto pt-20 pb-8">
+          <button className="absolute top-4 right-4 text-navy text-4xl" onClick={() => setIsOpen(false)} aria-label="Close menu">
+            ✕
+          </button>
           <ul className="flex flex-col px-6 space-y-4">
             {mainLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} onClick={() => setIsOpen(false)} className="block font-bold text-navy text-2xl hover:text-gold">{link.label}</Link>
+                <Link href={link.href} onClick={() => setIsOpen(false)} className="block font-bold text-navy text-2xl hover:text-gold">
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
-          <div className="bg-light-bg mt-8 px-6 py-8 space-y-6">
+
+          <div className="bg-light-bg mt-8 px-6 py-8 space-y-4">
             <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Core Divisions</p>
             {divisions.map((division) => (
               <div key={division.href}>
-                <Link href={division.href} onClick={() => setIsOpen(false)} className="block font-extrabold text-navy text-xl hover:text-gold">{division.label}</Link>
-                <ul className="pl-4 mt-2 space-y-2">
-                  {division.services.map((service) => (
-                    <li key={service.href + service.label}>
-                      <Link href={service.href} onClick={() => setIsOpen(false)} className="block text-navy text-base hover:text-gold">{service.label}</Link>
+                {/* Division Header (clickable to toggle) */}
+                <button 
+                  onClick={() => toggleDivision(division.label)}
+                  className="w-full flex items-center justify-between font-extrabold text-navy text-xl hover:text-gold py-2 text-left"
+                >
+                  {division.label}
+                  <span className="text-gold text-2xl">
+                    {openDivision === division.label ? '−' : '+'}
+                  </span>
+                </button>
+                
+                {/* Expanded Services */}
+                {openDivision === division.label && (
+                  <ul className="pl-4 mt-2 space-y-2">
+                    {division.services.map((service) => (
+                      <li key={service.href + service.label}>
+                        <Link href={service.href} onClick={() => setIsOpen(false)} className="block text-navy text-base hover:text-gold py-1">
+                          {service.label}
+                        </Link>
+                      </li>
+                    ))}
+                    <li className="pt-2">
+                      <Link href={division.href} onClick={() => setIsOpen(false)} className="block text-gold font-semibold hover:underline">
+                        View All →
+                      </Link>
                     </li>
-                  ))}
-                </ul>
+                  </ul>
+                )}
               </div>
             ))}
-          </div>
-          <div className="px-6 mt-8">
-            <Link href="/quote" onClick={() => setIsOpen(false)} className="block w-full text-center bg-gold text-navy px-6 py-4 rounded-full font-bold text-lg">Get a Quote</Link>
           </div>
         </div>
       )}

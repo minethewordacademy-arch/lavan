@@ -25,15 +25,15 @@ export default function Footer() {
         <div className="bg-light-bg py-16">
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             
-            {/* Brand/Logo - BULLETPROOF FIX */}
+            {/* Brand/Logo - Smaller & Far Left */}
             <div>
-              <div className="relative h-14 w-52 mb-4">
+              <div className="relative h-10 md:h-12 w-36 md:w-44 mb-4">
                 <Image
                   src="/lavanlogo2.JPG"
                   alt="Lavan Solar Systems"
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 208px, 208px"
+                  className="object-contain object-left"
+                  sizes="(max-width: 768px) 144px, 176px"
                   priority
                 />
               </div>

@@ -1,8 +1,8 @@
+//app/page >>main page 
 "use client";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import WatermarkImage from '@/components/WatermarkImage';
-import PartnerLogos from '@/components/PartnerLogos';
 
 export default function Home() {
   const slides = [
@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       {/* Split Hero Section */}
-      <section className="pt-36 md:pt-40 bg-gradient-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
+      <section className="pt-36 md:pt-40 bg-linear-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Left Text */}
           <div className="z-10">
@@ -75,7 +75,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-navy/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
                 {slides.map((_, index) => (
                   <button
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Business Divisions - WITHOUT ICONS */}
+      {/* Core Business Divisions */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -104,18 +104,21 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <Link href="/services/energy-engineering" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
+              <div className="w-16 h-16 bg-gold rounded-2xl flex items-center justify-center mb-6 text-navy text-3xl group-hover:bg-white group-hover:text-gold transition">⚙️</div>
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Energy Engineering</h3>
               <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Audits, Load Assessments, System Design & Consultancy.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
             </Link>
 
             <Link href="/services/solar-pv" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
+              <div className="w-16 h-16 bg-gold rounded-2xl flex items-center justify-center mb-6 text-navy text-3xl group-hover:bg-white group-hover:text-gold transition">🔋</div>
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Solar PV Systems</h3>
               <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar PV, Hybrid, Battery Storage & Backup Power.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
             </Link>
 
             <Link href="/services/thermal-energy" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
+              <div className="w-16 h-16 bg-gold rounded-2xl flex items-center justify-center mb-6 text-navy text-3xl group-hover:bg-white group-hover:text-gold transition">🔥</div>
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Thermal Energy</h3>
               <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar Water Heating, Heat Pumps & Commercial Hot Water.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
@@ -124,21 +127,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section - with Megawatts */}
+      {/* Stats Section */}
       <section className="py-16 bg-light-bg">
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 px-4 text-center">
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4 text-center">
           <div><h2 className="text-4xl font-extrabold text-navy">30+</h2><p className="text-gray-500 mt-2 text-sm uppercase">Projects</p></div>
-          <div><h2 className="text-4xl font-extrabold text-navy">0.5+</h2><p className="text-gray-500 mt-2 text-sm uppercase">Megawatts</p></div>
           <div><h2 className="text-4xl font-extrabold text-navy">98%</h2><p className="text-gray-500 mt-2 text-sm uppercase">Satisfaction</p></div>
           <div><h2 className="text-4xl font-extrabold text-navy">1+</h2><p className="text-gray-500 mt-2 text-sm uppercase">Years Exp.</p></div>
           <div><h2 className="text-4xl font-extrabold text-navy">3+</h2><p className="text-gray-500 mt-2 text-sm uppercase">Commercial</p></div>
         </div>
       </section>
 
-      {/* Partners Marquee */}
-      <PartnerLogos />
-
-      {/* How We Work / Process Section (6 steps) */}
+      {/* How We Work / Process Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -146,7 +145,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-4">How We Work</h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">A simple, transparent journey from consultation to handover.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {[
               { num: '1', title: 'Consultation', desc: 'We understand your energy usage and goals.' },
               { num: '2', title: 'Site Assessment', desc: 'Technical review of roof space and load requirements.' },
@@ -167,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Lavan Section */}
+      {/* Why Choose Lavan Section - NEW & IMPROVED */}
       <section className="py-20 bg-navy relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
@@ -280,5 +279,59 @@ export default function Home() {
         </div>
       </section>
     </>
+  );
+}
+//app/layout 
+import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import GlobalProtection from '@/components/GlobalProtection';
+import './globals.css';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://lavansolar.co.ke'),
+  title: {
+    default: 'Lavan Solar Systems | Powered by the Sun. Perfected by Lavan.',
+    template: '%s | Lavan Solar Systems',
+  },
+  description: 'Lavan Solar Systems Limited is a Kenya-based solar energy company delivering clean, reliable, and efficient solar energy solutions for residential and commercial clients.',
+  openGraph: {
+    title: 'Lavan Solar Systems | Powered by the Sun. Perfected by Lavan.',
+    description: 'End-to-end solar PV, water heating, and energy consultation solutions in Kenya.',
+    url: 'https://lavansolar.co.ke',
+    siteName: 'Lavan Solar Systems',
+    images: [
+      {
+        url: '/images/open-graphs/og-home.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Lavan Solar Systems',
+      },
+    ],
+    locale: 'en_KE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lavan Solar Systems',
+    description: 'Kenya’s trusted solar partner.',
+    images: ['/images/open-graphs/og-home.jpg'],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <GlobalProtection />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
   );
 }
