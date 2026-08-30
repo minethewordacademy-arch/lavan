@@ -12,7 +12,7 @@ export default function PowerBackupPage() {
     <div className="pt-36 md:pt-40 bg-white">
       <section className="relative h-100 overflow-hidden">
         <WatermarkImage 
-          src="/images/services/solar-pv/batterystorage.jpg" 
+          src="/images/oursolarproducts/batterystorage.jpg" 
           alt="Power Backup" 
           fill 
           watermarkSize={100} 
@@ -41,9 +41,9 @@ export default function PowerBackupPage() {
               <h3 className="text-2xl font-bold text-navy mb-4">Basic Cover</h3>
               <p className="text-gray-600 mb-4">Power for essential appliances: Lighting, TV, Wi-Fi, Computers, and Fridge. Perfect for keeping your home functioning during short outages.</p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✅ Essential appliances only</li>
-                <li>✅ 2-4 hours backup time</li>
-                <li>✅ Perfect for apartments & small homes</li>
+                <li>• Essential appliances only</li>
+                <li>• 2-4 hours backup time</li>
+                <li>• Perfect for apartments & small homes</li>
               </ul>
               <Link href="/quote?service=power-backup-basic" className="block text-center bg-navy text-white py-3 rounded-full font-bold hover:bg-gold hover:text-navy transition mt-6">Get Basic Quote</Link>
             </div>
@@ -51,11 +51,34 @@ export default function PowerBackupPage() {
               <h3 className="text-2xl font-bold text-navy mb-4">Total Cover</h3>
               <p className="text-gray-600 mb-4">Everything is backed up. Life goes on uninterrupted: Water pumps, kitchen appliances, and all electronics powered seamlessly.</p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✅ All appliances fully powered</li>
-                <li>✅ 8+ hours backup time</li>
-                <li>✅ Perfect for homes & businesses</li>
+                <li>• All appliances fully powered</li>
+                <li>• 8+ hours backup time</li>
+                <li>• Perfect for homes & businesses</li>
               </ul>
               <Link href="/quote?service=power-backup-total" className="block text-center bg-navy text-white py-3 rounded-full font-bold hover:bg-gold hover:text-navy transition mt-6">Get Total Quote</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Showcase */}
+      <section className="py-20 bg-light-bg">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">Our Backup Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-6">
+                <WatermarkImage src="/images/oursolarproducts/batterystorage.jpg" alt="Solar Batteries" fill watermarkSize={60} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-2xl font-extrabold text-navy mb-3">Battery Storage</h3>
+              <p className="text-gray-600">Lithium and other energy-storage technologies for backup power and solar energy storage.</p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-6">
+                <WatermarkImage src="/images/oursolarproducts/hybridinverters.jpg" alt="Hybrid Inverters" fill watermarkSize={60} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-2xl font-extrabold text-navy mb-3">Hybrid Inverters</h3>
+              <p className="text-gray-600">Intelligent inverters combining solar, battery, and grid power for flexible energy management.</p>
             </div>
           </div>
         </div>

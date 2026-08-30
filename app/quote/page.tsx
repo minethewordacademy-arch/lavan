@@ -2,9 +2,33 @@
 import { useState, Suspense, ChangeEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 
+// Map service slugs to readable labels
+const serviceLabels: Record<string, string> = {
+  'general-inquiry': 'General Inquiry',
+  'solar-pv': 'Solar PV Systems',
+  'solar-water-heating': 'Solar Water Heating',
+  'borehole-solarization': 'Borehole Solarization',
+  'hybrid-solar-system': 'Hybrid Solar System',
+  'power-backup': 'Power Backup',
+  'energy-audit': 'Energy Audit',
+  'pressurized-solar-water-heater': 'Pressurized Solar Water Heater',
+  'non-pressurized-solar-water-heater': 'Non-Pressurized Solar Water Heater',
+  'heat-pump-water-heater': 'Heat Pump Water Heater',
+  'grid-tie': 'Grid-Tie Solutions',
+  'off-grid': 'Off-Grid Solutions',
+  'energy-engineering': 'Energy Engineering',
+};
+
+const waterHeatingServices = [
+  'solar-water-heating',
+  'pressurized-solar-water-heater',
+  'non-pressurized-solar-water-heater',
+  'heat-pump-water-heater',
+];
+
 function QuoteForm() {
   const searchParams = useSearchParams();
-  const preselectedService = searchParams.get('service') || '';
+  const preselectedService = searchParams.get('service') || 'general-inquiry';
 
   const [form, setForm] = useState({
     name: '',
@@ -12,11 +36,14 @@ function QuoteForm() {
     phone: '',
     siteLocation: '',
     propertyType: 'Residential',
-    systemType: preselectedService || 'General Inquiry',
+    systemType: preselectedService,
     monthlyBill: '',
     appliances: '',
+    waterUsers: '',
     message: '',
   });
+
+  const isWaterHeating = waterHeatingServices.includes(form.systemType);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,15 +51,29 @@ function QuoteForm() {
 
   const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hello Lavan Solar! I'd like a quote:%0A%0AName: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.phone}%0ASite Location: ${form.siteLocation}%0AProperty: ${form.propertyType}%0AInterested In: ${form.systemType}%0AMonthly Bill: ${form.monthlyBill}%0AAppliances: ${form.appliances}%0A%0AMessage: ${form.message}`;
+    const serviceName = serviceLabels[form.systemType] || form.systemType;
+    let text = `Hello Lavan Solar! I'd like a quote:%0A%0AName: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.phone}%0ASite Location: ${form.siteLocation}%0AProperty: ${form.propertyType}%0AInterested In: ${serviceName}%0A`;
+    if (isWaterHeating) {
+      text += `Users per day: ${form.waterUsers}%0A`;
+    } else {
+      text += `Monthly Bill: ${form.monthlyBill}%0AAppliances: ${form.appliances}%0A`;
+    }
+    text += `%0A${form.message}`;
     window.open(`https://wa.me/254100766486?text=${text}`, '_blank');
   };
 
   const handleEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Quote Request for ${form.systemType} from ${form.name}`;
-    const body = `Name: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.phone}%0ASite Location: ${form.siteLocation}%0AProperty: ${form.propertyType}%0AInterested In: ${form.systemType}%0AMonthly Bill: ${form.monthlyBill}%0AAppliances: ${form.appliances}%0A%0A${form.message}`;
-    window.location.href = `mailto:info@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`; // Updated email
+    const serviceName = serviceLabels[form.systemType] || form.systemType;
+    let body = `Name: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.phone}%0ASite Location: ${form.siteLocation}%0AProperty: ${form.propertyType}%0AInterested In: ${serviceName}%0A`;
+    if (isWaterHeating) {
+      body += `Users per day: ${form.waterUsers}%0A`;
+    } else {
+      body += `Monthly Bill: ${form.monthlyBill}%0AAppliances: ${form.appliances}%0A`;
+    }
+    body += `%0A${form.message}`;
+    const subject = `Quote Request for ${serviceName} from ${form.name}`;
+    window.location.href = `mailto:info@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
@@ -42,12 +83,13 @@ function QuoteForm() {
           <span className="text-gold font-semibold uppercase text-sm">Get Your Free Quote</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-navy mt-2">Design Your Solar System</h1>
           <p className="text-gray-600 mt-4">
-            {preselectedService ? `You are enquiring about: ${preselectedService.replace(/-/g, ' ')}` : 'Tell us about your property and energy needs.'}
+            {preselectedService ? `You are enquiring about: ${serviceLabels[preselectedService] || preselectedService}` : 'Tell us about your property and energy needs.'}
           </p>
         </div>
 
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
           <form className="space-y-6">
+            {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-navy mb-1">Full Name *</label>
@@ -58,7 +100,7 @@ function QuoteForm() {
                 <input type="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="wesley@example.com" />
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-navy mb-1">Phone Number</label>
@@ -84,30 +126,32 @@ function QuoteForm() {
               <div>
                 <label className="block text-sm font-semibold text-navy mb-1">Product/System Type</label>
                 <select name="systemType" value={form.systemType} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none">
-                  <option>Solar PV</option>
-                  <option>Solar Water Heating</option>
-                  <option>Borehole Solarization</option>
-                  <option>Hybrid System</option>
-                  <option>Power Backup</option>
-                  <option>Energy Audit</option>
-                  <option>Pressurized Solar Water Heater</option>
-                  <option>Non-Pressurized Solar Water Heater</option>
-                  <option>Heat Pump Water Heater</option>
+                  {Object.entries(serviceLabels).map(([slug, label]) => (
+                    <option key={slug} value={slug}>{label}</option>
+                  ))}
                 </select>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* Conditional Fields */}
+            {isWaterHeating ? (
               <div>
-                <label className="block text-sm font-semibold text-navy mb-1">Average Monthly Electricity Bill (KES)</label>
-                <input type="text" name="monthlyBill" value={form.monthlyBill} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="e.g. 15,000" />
+                <label className="block text-sm font-semibold text-navy mb-1">How many users per day?</label>
+                <input type="text" name="waterUsers" value={form.waterUsers} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="e.g. 10-15 people" />
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-navy mb-1">List Your Appliances</label>
-                <input type="text" name="appliances" value={form.appliances} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="e.g. TV, fridge, lights, pump, etc." />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-navy mb-1">Average Monthly Electricity Bill (KES)</label>
+                  <input type="text" name="monthlyBill" value={form.monthlyBill} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="e.g. 15,000" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-navy mb-1">List Your Appliances</label>
+                  <input type="text" name="appliances" value={form.appliances} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="e.g. TV, fridge, lights, pump, etc." />
+                </div>
               </div>
-            </div>
-            
+            )}
+
             <div>
               <label className="block text-sm font-semibold text-navy mb-1">Additional Details</label>
               <textarea name="message" value={form.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none" placeholder="Tell us about your roof space, backup needs, or any other requirements..." />

@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function SolarPumpingPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
-      {/* Hero */}
       <section className="relative h-100 overflow-hidden">
         <WatermarkImage 
           src="/images/services/energy-engineering/solarpanel-on-stand.jpg" 
@@ -29,7 +28,6 @@ export default function SolarPumpingPage() {
         </div>
       </section>
 
-      {/* Core Solution Section */}
       <section className="py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-8">Why Solarize Your Borehole?</h2>
@@ -61,6 +59,32 @@ export default function SolarPumpingPage() {
           <Link href="/quote?service=borehole-solarization" className="block text-center bg-navy text-white py-5 rounded-full font-bold hover:bg-gold hover:text-navy transition max-w-sm mx-auto mt-12 text-lg">
             Request a Borehole Site Survey
           </Link>
+        </div>
+      </section>
+
+      <section className="py-20 bg-light-bg">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">Our Pumping Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solarpumps.jpg" alt="Solar Pumps" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Pumps</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solarpanel.jpg" alt="Solar Panels" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Panels</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solaraccessories.jpg" alt="Solar Accessories" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Accessories</h3>
+            </div>
+          </div>
         </div>
       </section>
     </div>

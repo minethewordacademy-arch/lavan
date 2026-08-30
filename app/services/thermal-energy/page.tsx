@@ -27,6 +27,33 @@ export default function ThermalEnergyPage() {
         </div>
       </section>
 
+      {/* Product Showcase */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">Our Thermal Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solarwaterheaters.jpg" alt="Solar Water Heaters" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Water Heaters</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/heatpumps.jpg" alt="Heat Pumps" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Heat Pumps</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/hotwatertank.jpg" alt="Hot Water Tanks" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Hot Water Tanks</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Interactive Accordion (Client Component) */}
       <ThermalAccordion />
     </div>

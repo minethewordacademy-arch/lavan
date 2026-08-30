@@ -1,0 +1,23 @@
+// lib/routes.ts
+export const staticRoutes = [
+  '/',
+  '/about',
+  '/products',
+  '/projects',
+  '/services',
+  '/services/energy-engineering',
+  '/services/energy-audit',
+  '/services/solar-pv',
+  '/services/energy-systems',
+  '/services/grid-tie',
+  '/services/off-grid',
+  '/services/hybrid-systems',
+  '/services/power-backup',
+  '/services/solar-pumping',
+  '/services/thermal-energy',
+  '/faq',
+  '/contact',
+  '/blog',
+  '/privacy-policy',
+  '/quote',
+];

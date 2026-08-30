@@ -38,6 +38,32 @@ export default function OffGridPage() {
           <Link href="/quote?service=off-grid" className="block text-center bg-navy text-white py-5 rounded-full font-bold hover:bg-gold hover:text-navy transition max-w-sm mx-auto text-lg">Get an Off-Grid Quote</Link>
         </div>
       </section>
+
+      <section className="py-20 bg-light-bg">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">Featured Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solarpanel.jpg" alt="Solar Panels" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Panels</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/solarbatteries.jpg" alt="Solar Batteries" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Solar Batteries</h3>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+              <div className="relative h-40 w-full rounded-xl overflow-hidden mb-4">
+                <WatermarkImage src="/images/oursolarproducts/hybridinverters.jpg" alt="Hybrid Inverters" fill watermarkSize={50} watermarkPosition="bottom-right" />
+              </div>
+              <h3 className="text-xl font-bold text-navy">Hybrid Inverters</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

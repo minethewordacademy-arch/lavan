@@ -1,7 +1,7 @@
 export const projects = [
   // Katani Road has two different sites (Seven SS image & Suntech video)
   { slug: 'katani-solar-water', title: 'Solar water heating solution - Seven SS', location: 'Katani Road, Syokimau', image: '/images/projects/katani-solarWater.webp' },
-  { slug: 'katani-suntech-video', title: 'Solar water heating system - Suntech', location: 'Katani Road, Syokimau', image: '/images/projects/suntech.webp', video: '/videos/water-heating-roof.mp4' },
+  { slug: 'westlands-solar-water', title: 'Solar water heating system - Suntech', location: 'Westlands, Nairobi', image: '/images/projects/suntech.webp', video: '/videos/water-heating-roof.mp4' },
   
   // Other existing projects
   { slug: 'awendo-solar-water', title: 'Solar water heating solution', location: 'Awendo, Migori County', image: '/images/projects/awendo-solarWater.webp' },

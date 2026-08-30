@@ -127,7 +127,7 @@ export default function ContactPage() {
                   rows={5}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gold focus:outline-none"
-                  placeholder="I'd like a quote for a 10kW solar system..."
+                  placeholder="I'd like a quote for .."
                 />
               </div>
 
