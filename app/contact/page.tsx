@@ -18,7 +18,8 @@ export default function ContactPage() {
     e.preventDefault();
     const subject = `Website Inquiry from ${form.name}`;
     const body = `Name: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.phone}%0A%0A${form.message}`;
-    window.location.href = `mailto:lavansolar@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    // ✅ Updated to info@lavansolar.co.ke (NOT gmail)
+    window.location.href = `mailto:info@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
@@ -48,7 +49,8 @@ export default function ContactPage() {
                 <span className="text-gold text-2xl">✉️</span>
                 <div>
                   <p className="text-sm text-white/60">Email</p>
-                  <a href="mailto:lavansolar@gmail.com" className="font-bold text-white hover:text-gold">info@lavansolar.co.ke</a>
+                  {/* ✅ Display correct email */}
+                  <a href="mailto:info@lavansolar.co.ke" className="font-bold text-white hover:text-gold">info@lavansolar.co.ke</a>
                 </div>
               </li>
               <li className="flex items-start gap-4">

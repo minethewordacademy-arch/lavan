@@ -73,7 +73,8 @@ function QuoteForm() {
     }
     body += `%0A${form.message}`;
     const subject = `Quote Request for ${serviceName} from ${form.name}`;
-    window.location.href = `mailto:info@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`;
+    // ✅ Updated to sales@lavansolar.co.ke for quote requests
+    window.location.href = `mailto:sales@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
