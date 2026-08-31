@@ -29,7 +29,7 @@ export default function About() {
             Lavan Solar Systems Limited is a Kenya-based solar energy company focused on delivering clean, reliable, and efficient energy solutions for residential and commercial clients.
           </p>
           <p className="text-gray-700 text-lg">
-            Our mission is to design and deliver solar systems that solve real energy challenges through quality equipment, practical engineering, transparent advice, and responsive support.
+            We design and deliver solar systems that solve real energy challenges through quality equipment, practical engineering, transparent advice, and responsive support.
           </p>
           
           <h2 className="text-2xl font-bold mt-8 mb-4 text-navy">Our Vision</h2>

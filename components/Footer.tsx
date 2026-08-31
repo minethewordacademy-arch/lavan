@@ -70,7 +70,7 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <span className="font-bold text-gold">Office:</span><br/>
-                  Omega Business Park,<br/>P.O Box 61584-00200 Nairobi
+                  Warehouse,<br/>P.O Box 61584-00200 Nairobi
                 </li>
                 <li>
                   <span className="font-bold text-gold">Email:</span><br/>
@@ -90,7 +90,7 @@ export default function Footer() {
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-4">
             
             {/* Inquire Now Button (Techwin Style) */}
-            <Link href="/contact" className="bg-gold text-navy font-bold px-6 py-2 rounded-lg hover:bg-white transition transform hover:-translate-y-1 shadow-lg">
+            <Link href="/contact" className="bg-gold text-navy font-bold px-4 py-1.5 rounded-lg hover:bg-white transition transform hover:-translate-y-1 shadow-lg">
               INQUIRE NOW
             </Link>
 

@@ -26,6 +26,7 @@ export default function WatermarkVideo({
         poster={poster}
         className="w-full h-auto rounded-xl"
         autoPlay
+        muted    // ✅ Added to mute all videos
         loop
         playsInline
         controls
