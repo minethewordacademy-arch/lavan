@@ -56,8 +56,8 @@ export default function ContactPage() {
               <li className="flex items-start gap-4">
                 <span className="text-gold text-2xl">📍</span>
                 <div>
-                  <p className="text-sm text-white/60">Office</p>
-                  <p className="font-bold">Warehouse, P.O Box 61584-00200 Nairobi</p>
+                  <p className="text-sm text-white/60">Warehouse</p>
+                  <p className="font-bold">Omega Business, P.O Box 61584-00200 Nairobi</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
