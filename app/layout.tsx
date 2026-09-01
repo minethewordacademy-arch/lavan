@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   description: 'Lavan Solar Systems Limited is a Kenya-based solar energy company delivering clean, reliable, and efficient solar energy solutions for residential and commercial clients.',
   keywords: ['solar Kenya', 'solar panels', 'solar water heating', 'borehole solarization', 'Lavan Solar', 'solar installation Nairobi'],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Lavan Solar Systems | Powered by the Sun. Perfected by Lavan.',
     description: 'End-to-end solar PV, water heating, and energy consultation solutions in Kenya.',
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     images: ['/images/open-graphs/og-home.jpg'],
   },
   other: {
-    'google-site-verification': 'YOUR_GOOGLE_VERIFICATION_CODE', // ← Replace with your real code
+    'google-site-verification': 'YOUR_GOOGLE_VERIFICATION_CODE', // ⬅️ Replace with your real code
   },
 };
 
