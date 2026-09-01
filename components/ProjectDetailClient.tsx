@@ -33,11 +33,9 @@ export default function ProjectDetailClient({ project, prevProject, nextProject 
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
 
-    // Swipe left -> next
     if (diff > 50 && nextProject) {
       router.push(`/projects/${nextProject.slug}`);
     }
-    // Swipe right -> previous
     if (diff < -50 && prevProject) {
       router.push(`/projects/${prevProject.slug}`);
     }
@@ -46,12 +44,42 @@ export default function ProjectDetailClient({ project, prevProject, nextProject 
 
   return (
     <div className="pt-36 md:pt-40 pb-16 bg-light-bg" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-5xl">
         {/* Breadcrumb */}
-        <Link href="/projects" className="text-navy hover:text-gold transition mb-8 inline-block">← Back to Projects</Link>
+        <Link href="/projects" className="text-navy hover:text-gold transition mb-6 inline-block">← Back to Projects</Link>
 
-        {/* Media (reduced height) */}
-        <div className="mb-6">
+        {/* Media Section with Side Navigation */}
+        <div className="relative mb-6">
+          
+          {/* Previous Button (Left) */}
+          {prevProject && (
+            <Link
+              href={`/projects/${prevProject.slug}`}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-navy p-4 rounded-full shadow-xl transition hover:scale-105 flex items-center justify-center"
+              aria-label="Previous Project"
+              title={`Previous: ${prevProject.title}`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </Link>
+          )}
+
+          {/* Next Button (Right) */}
+          {nextProject && (
+            <Link
+              href={`/projects/${nextProject.slug}`}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-navy p-4 rounded-full shadow-xl transition hover:scale-105 flex items-center justify-center"
+              aria-label="Next Project"
+              title={`Next: ${nextProject.title}`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          )}
+
+          {/* Media (image/video) */}
           {project.video ? (
             <WatermarkVideo
               src={project.video}
@@ -92,7 +120,7 @@ export default function ProjectDetailClient({ project, prevProject, nextProject 
             <ShareButtons title={project.title} url={`https://lavansolar.co.ke/projects/${project.slug}`} />
           </div>
 
-          {/* Previous / Next Navigation */}
+          {/* Bottom Navigation (optional, for accessibility) */}
           <div className="flex justify-between items-center mt-8">
             {prevProject ? (
               <Link href={`/projects/${prevProject.slug}`} className="text-navy hover:text-gold transition font-semibold inline-flex items-center gap-2">

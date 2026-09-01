@@ -70,7 +70,7 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <span className="font-bold text-gold">Warehouse:</span><br/>
-                  Omega Business, P.O Box 61584-00200 Nairobi
+                  Omega Business Park, P.O Box 61584-00200 Nairobi
                 </li>
                 <li>
                   <span className="font-bold text-gold">Email:</span><br/>

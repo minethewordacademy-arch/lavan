@@ -14,7 +14,6 @@ const partners = [
   'suntree',
   'davis-shirtliff',
   'seven-ss',
-  'aquasun',
 ];
 
 export default function PartnerLogos() {
@@ -31,7 +30,7 @@ export default function PartnerLogos() {
           {[...partners, ...partners].map((partner, idx) => (
             <div
               key={idx}
-              className="relative h-24 w-40 object-contain flex-shrink-0"
+              className="relative h-24 w-40 object-contain shrink-0"
             >
               <Image
                 src={`/images/partners/${partner}.jpg`}
