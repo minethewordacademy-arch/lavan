@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${project.title} | Lavan Solar Systems`,
     description: `Completed ${project.title} in ${project.location}. Trust Lavan for reliable solar energy solutions.`,
+    keywords: [`${project.title}`, `solar installation ${project.location}`, 'Lavan Solar Systems'],
     alternates: {
       canonical: `https://lavansolar.co.ke/projects/${project.slug}`,
     },

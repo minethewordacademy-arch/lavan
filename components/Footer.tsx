@@ -73,8 +73,13 @@ export default function Footer() {
                   Omega Business Park, P.O Box 61584-00200 Nairobi
                 </li>
                 <li>
-                  <span className="font-bold text-gold">Email:</span><br/>
+                  <span className="font-bold text-gold">General Email:</span><br/>
                   <a href="mailto:info@lavansolar.co.ke" className="hover:text-gold">info@lavansolar.co.ke</a>
+                </li>
+                {/* NEW SALES EMAIL ADDED HERE */}
+                <li>
+                  <span className="font-bold text-gold">Sales/Quotes:</span><br/>
+                  <a href="mailto:sales@lavansolar.co.ke" className="hover:text-gold">sales@lavansolar.co.ke</a>
                 </li>
                 <li>
                   <span className="font-bold text-gold">Phone:</span><br/>
@@ -89,7 +94,7 @@ export default function Footer() {
         <div className="bg-navy-dark py-6 relative">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-4">
             
-            {/* Inquire Now Button (Techwin Style) */}
+            {/* Inquire Now Button */}
             <Link href="/contact" className="bg-gold text-navy font-bold px-4 py-1.5 rounded-lg hover:bg-white transition transform hover:-translate-y-1 shadow-lg">
               INQUIRE NOW
             </Link>

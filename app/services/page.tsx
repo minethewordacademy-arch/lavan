@@ -3,8 +3,20 @@ import type { Metadata } from 'next';
 import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Lavan Solar Systems',
-  description: 'Explore our core divisions: Energy Engineering, Solar PV Systems, Thermal Energy, and their specialized solutions.',
+  title: 'Services | Lavan Solar Systems',
+  description: 'Explore our core divisions: Energy Engineering, Solar PV Systems, Thermal Energy, and their specialized solutions. Solar installation, design, and maintenance in Kenya.',
+  keywords: [
+    'solar services Kenya',
+    'energy engineering',
+    'solar PV systems',
+    'solar water heating',
+    'solar installation Nairobi',
+    'borehole solarization',
+    'hybrid solar systems',
+  ],
+  alternates: {
+    canonical: 'https://lavansolar.co.ke/services',
+  },
 };
 
 export default function ServicesPage() {

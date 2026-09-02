@@ -3,6 +3,15 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Us | Lavan Solar Systems',
   description: 'Learn about Lavan Solar Systems: our mission, vision, and the team behind Kenya’s trusted solar energy solutions.',
+  keywords: [
+    'about Lavan Solar Systems',
+    'solar company Kenya',
+    'solar energy experts Nairobi',
+    'renewable energy Kenya',
+  ],
+  alternates: {
+    canonical: 'https://lavansolar.co.ke/about',
+  },
   openGraph: {
     title: 'About Lavan Solar Systems',
     description: 'We design and deliver solar systems that solve real energy challenges through quality equipment, practical engineering, and transparent advice.',
@@ -18,7 +27,6 @@ export default function About() {
   return (
     <div className="pt-36 md:pt-40 pb-16 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
-        {/* Header */}
         <div className="text-center mb-12">
           <span className="text-gold font-semibold uppercase text-sm">About Us</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-navy mt-2">About Lavan Solar Systems</h1>

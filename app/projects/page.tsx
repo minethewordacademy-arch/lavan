@@ -4,12 +4,26 @@ import { projects } from '@/lib/projects';
 import WatermarkImage from '@/components/WatermarkImage';
 
 export const metadata: Metadata = {
-  title: 'Our Projects | Lavan Solar Systems',
-  description: 'Explore our portfolio of completed solar installations across Kenya.',
+  title: 'Projects | Lavan Solar Systems',
+  description: 'Explore our portfolio of completed solar installations across Kenya. Residential, commercial, and industrial solar projects by Lavan Solar Systems.',
+  keywords: [
+    'solar projects Kenya',
+    'solar installations Nairobi',
+    'commercial solar Kenya',
+    'residential solar projects',
+    'borehole solarization projects',
+  ],
+  alternates: {
+    canonical: 'https://lavansolar.co.ke/projects',
+  },
   openGraph: {
     title: 'Lavan Solar Projects',
     description: 'Real-world solar solutions: water heating, hybrid systems, commercial PV, and pumping solutions across Kenya.',
     images: ['/images/open-graphs/og-projects.jpg'],
+    url: 'https://lavansolar.co.ke/projects',
+    siteName: 'Lavan Solar Systems',
+    locale: 'en_KE',
+    type: 'website',
   },
 };
 

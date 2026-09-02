@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy | Lavan Solar Systems',
   description: 'How Lavan Solar Systems collects, uses, and protects your data.',
+  alternates: {
+    canonical: 'https://lavansolar.co.ke/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -37,7 +40,7 @@ export default function PrivacyPolicy() {
             Lavan Solar Systems Limited<br />
             Omega Business Park<br />
             P.O Box 61584-00200 Nairobi<br />
-            Email: lavansolar@gmail.com<br />
+            Email: info@lavansolar.co.ke<br />
             Phone: +254 100 766 486
           </p>
         </div>
