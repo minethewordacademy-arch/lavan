@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-navy: #113F58;
@@ -7,12 +8,24 @@
   --color-gold: #C59833;
   --color-gold-light: #D4A94A;
   --color-light-bg: #F7F7F7;
+
+  /* ✅ Font families */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background-color: #ffffff;
   color: #113F58;
+  font-family: var(--font-sans);
 }
+
+/* ✅ Apply Plus Jakarta Sans to all headings automatically */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ✅ Marquee animation for partner logos */
 @keyframes marquee {
   0% {
     transform: translateX(0);

@@ -12,18 +12,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: 'Project Not Found' };
 
+  const pageUrl = `https://lavansolar.co.ke/projects/${project.slug}`;
+  const absoluteImageUrl = `https://lavansolar.co.ke${project.image}`;
+
   return {
     title: `${project.title} | Lavan Solar Systems`,
     description: `Completed ${project.title} in ${project.location}. Trust Lavan for reliable solar energy solutions.`,
     keywords: [`${project.title}`, `solar installation ${project.location}`, 'Lavan Solar Systems'],
     alternates: {
-      canonical: `https://lavansolar.co.ke/projects/${project.slug}`,
+      canonical: pageUrl,
     },
     openGraph: {
       title: `${project.title} - Lavan Solar Systems`,
       description: `View our completed ${project.title.toLowerCase()} project in ${project.location}.`,
-      images: [{ url: project.image, width: 1200, height: 630, alt: project.title }],
-      url: `https://lavansolar.co.ke/projects/${project.slug}`,
+      url: pageUrl,
+      siteName: 'Lavan Solar Systems',
+      images: [
+        {
+          url: absoluteImageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      locale: 'en_KE',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: `Completed ${project.title} in ${project.location}.`,
+      images: [absoluteImageUrl],
     },
   };
 }

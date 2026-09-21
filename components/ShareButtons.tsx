@@ -1,7 +1,18 @@
 "use client";
 import { useState } from 'react';
 
-export default function ShareButtons({ title, url }: { title: string; url: string; image?: string }) {
+interface ShareButtonsProps {
+  title: string;
+  url: string;
+  image?: string;
+  label?: string;
+}
+
+export default function ShareButtons({
+  title,
+  url,
+  label = 'Share this',
+}: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
   const encodedUrl = encodeURIComponent(url);
@@ -50,7 +61,7 @@ export default function ShareButtons({ title, url }: { title: string; url: strin
 
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <span className="text-gray-600 font-semibold text-sm">Share this project:</span>
+      <span className="text-gray-600 font-semibold text-sm">{label}:</span>
       {socialLinks.map((link) => (
         <a
           key={link.name}

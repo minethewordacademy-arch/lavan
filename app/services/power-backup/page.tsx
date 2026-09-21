@@ -12,7 +12,7 @@ export default function PowerBackupPage() {
     <div className="pt-36 md:pt-40 bg-white">
       <section className="relative h-100 overflow-hidden">
         <WatermarkImage 
-          src="/images/oursolarproducts/batterystorage.jpg" 
+          src="/images/services/solar-pv/batterystorage.jpg" 
           alt="Power Backup" 
           fill 
           watermarkSize={100} 
@@ -68,7 +68,7 @@ export default function PowerBackupPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition">
               <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-6">
-                <WatermarkImage src="/images/oursolarproducts/batterystorage.jpg" alt="Solar Batteries" fill watermarkSize={60} watermarkPosition="bottom-right" />
+                <WatermarkImage src="/images/services/solar-pv/batterystorage.jpg" alt="Solar Batteries" fill watermarkSize={60} watermarkPosition="bottom-right" />
               </div>
               <h3 className="text-2xl font-extrabold text-navy mb-3">Battery Storage</h3>
               <p className="text-gray-600">Lithium and other energy-storage technologies for backup power and solar energy storage.</p>
