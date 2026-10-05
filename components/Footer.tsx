@@ -18,7 +18,6 @@ const divisionLinks = [
   { href: '/services/solar-pv', label: 'Solar PV Systems' },
   { href: '/services/thermal-energy', label: 'Thermal Energy' },
   { href: '/diaspora-solar-project-management', label: 'Diaspora Project Management' },
-  { href: '/quote', label: 'Get a Quote' },
 ];
 
 export default function Footer() {
