@@ -6,7 +6,6 @@ import { useState } from 'react';
 const mainLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  //{ href: '/products', label: 'Products' },
   { href: '/projects', label: 'Projects' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
@@ -18,6 +17,8 @@ const divisions = [
     href: '/services/energy-engineering',
     label: 'Energy Engineering',
     services: [
+      // ✅ Diaspora landing page added as top item (high-visibility campaign)
+      { label: '🌍 Diaspora Project Management', href: '/diaspora-solar-project-management' },
       { label: 'Energy Audit & Consultancy', href: '/services/energy-audit' },
       { label: 'System Design', href: '/services/energy-engineering' },
       { label: 'Load Assessments', href: '/services/energy-engineering' },
@@ -48,8 +49,6 @@ const divisions = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  
-  // State for collapse (holds the label of the currently open division, or null)
   const [openDivision, setOpenDivision] = useState<string | null>(null);
 
   const toggleDivision = (label: string) => {
@@ -62,7 +61,6 @@ export default function Navbar() {
         {/* Top Navbar - Far Left Logo */}
         <nav className="bg-white">
           <div className="flex items-center justify-between h-16 md:h-20 px-4 md:pl-6 md:pr-8">
-            {/* Smaller Logo - Far Left */}
             <Link href="/" className="flex items-center">
               <div className="relative h-10 md:h-12 w-36 md:w-44">
                 <Image
@@ -87,7 +85,6 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Mobile Toggle */}
             <button className="md:hidden text-navy text-3xl" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? '✕' : '☰'}
             </button>
@@ -103,11 +100,14 @@ export default function Navbar() {
                   {division.label}
                   <span className="text-gold text-xs">▼</span>
                 </Link>
-                <div className="absolute left-0 top-full w-72 bg-white rounded-b-xl shadow-2xl border-t-4 border-gold opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute left-0 top-full w-80 bg-white rounded-b-xl shadow-2xl border-t-4 border-gold opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <ul className="py-4">
                     {division.services.map((service) => (
                       <li key={service.href + service.label}>
-                        <Link href={service.href} className="block px-6 py-3 text-navy font-medium hover:bg-light-bg hover:text-gold transition">
+                        <Link
+                          href={service.href}
+                          className="block px-6 py-3 text-navy font-medium hover:bg-light-bg hover:text-gold transition"
+                        >
                           {service.label}
                         </Link>
                       </li>
@@ -145,23 +145,26 @@ export default function Navbar() {
             <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Core Divisions</p>
             {divisions.map((division) => (
               <div key={division.href}>
-                {/* Division Header (clickable to toggle) */}
-                <button 
+                <button
                   onClick={() => toggleDivision(division.label)}
                   className="w-full flex items-center justify-between font-extrabold text-navy text-xl hover:text-gold py-2 text-left"
+                  aria-expanded={openDivision === division.label}
                 >
                   {division.label}
                   <span className="text-gold text-2xl">
                     {openDivision === division.label ? '−' : '+'}
                   </span>
                 </button>
-                
-                {/* Expanded Services */}
+
                 {openDivision === division.label && (
                   <ul className="pl-4 mt-2 space-y-2">
                     {division.services.map((service) => (
                       <li key={service.href + service.label}>
-                        <Link href={service.href} onClick={() => setIsOpen(false)} className="block text-navy text-base hover:text-gold py-1">
+                        <Link
+                          href={service.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block text-navy text-base hover:text-gold py-1"
+                        >
                           {service.label}
                         </Link>
                       </li>
