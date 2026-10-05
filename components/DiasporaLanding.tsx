@@ -1,12 +1,13 @@
 "use client";
 import { useState, type ChangeEvent } from "react";
 import WatermarkImage from "@/components/WatermarkImage";
+
 // ============================================================
 // SECTION 1 — HERO (image at natural ratio, no crop, no deadspace)
 // ============================================================
 function Hero() {
   return (
-    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-linear-to-br from-navy to-navy-dark relative overflow-hidden">
+    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-gradient-to-br from-navy to-navy-dark relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Left — Copy */}
         <div className="z-10">
@@ -487,7 +488,7 @@ function RoleClarity() {
 const reasons = [
   {
     title: "Independent technical thinking",
-    desc: "Recommendations are tied to the property\u2019s requirements, not a predetermined package.",
+    desc: "Recommendations are tied to the property's requirements, not a predetermined package.",
   },
   {
     title: "Electrical and thermal coordination",
@@ -543,7 +544,7 @@ function QuotationOffer() {
   return (
     <section
       id="quotation-upload"
-      className="py-20 bg-linear-to-br from-gold to-gold-light"
+      className="py-20 bg-gradient-to-br from-gold to-gold-light"
     >
       <div className="container mx-auto px-6 max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-4">
@@ -572,90 +573,28 @@ function QuotationOffer() {
 }
 
 // ============================================================
-// SECTION 11 — FAQ ACCORDION
+// FAQ TEASER (links to full FAQ page)
 // ============================================================
-const faqs = [
-  {
-    q: "Can Lavan review a quotation from another solar company?",
-    a: "Yes. We can assess the proposed sizing, specifications, compatibility, warranties, exclusions and expected performance before you make a decision.",
-  },
-  {
-    q: "Can you supervise a contractor I have already selected?",
-    a: "Yes, subject to an agreed scope and access to the site, contractor documents and relevant project information. Inspection points should ideally be agreed before installation begins.",
-  },
-  {
-    q: "Will you tell me when to release payment?",
-    a: "We can verify technical progress against agreed milestones and issue a documented recommendation. You retain contractual and payment authority unless a separate written mandate provides otherwise.",
-  },
-  {
-    q: "Can Lavan also supply and install the system?",
-    a: "Yes. Design and delivery can be offered as a separate engagement. We will state clearly whether Lavan is acting as an independent reviewer, owner\u2019s representative or installation contractor.",
-  },
-  {
-    q: "How will I receive updates?",
-    a: "Reporting may include scheduled online meetings, written progress reports, dated photographs, videos, action registers and commissioning records, depending on the project scope.",
-  },
-  {
-    q: "Can you manage solar water heating and heat pumps as well as solar PV?",
-    a: "Yes. Lavan works across electrical and thermal energy systems, allowing related requirements to be coordinated during design and construction.",
-  },
-  {
-    q: "Do you work throughout Kenya?",
-    a: "Projects are assessed based on location, scope, access and schedule. Submit the project details and Lavan will confirm availability and any travel requirements.",
-  },
-  {
-    q: "How much does the service cost?",
-    a: "Fees depend on the project stage, location, value, number of inspections and required deliverables. After the initial consultation, you will receive a defined scope and fee proposal before work begins.",
-  },
-];
-
-function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+function FAQTeaser() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-navy">
-            Frequently Asked Questions
-          </h2>
-        </div>
-        <div className="space-y-3">
-          {faqs.map((f, i) => (
-            <div
-              key={f.q}
-              className="bg-light-bg rounded-2xl overflow-hidden border border-gray-200"
-            >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full text-left px-6 py-5 flex justify-between items-center hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-1"
-                aria-expanded={open === i}
-                aria-controls={`faq-${i}`}
-              >
-                <span className="font-bold text-navy pr-4">{f.q}</span>
-                <span
-                  className={`text-gold text-2xl transition-transform ${open === i ? "rotate-45" : ""}`}
-                >
-                  +
-                </span>
-              </button>
-              {open === i && (
-                <div
-                  id={`faq-${i}`}
-                  className="px-6 pb-5 text-gray-600 leading-relaxed"
-                >
-                  {f.a}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-6 max-w-3xl text-center">
+        <p className="text-gray-600">
+          Have questions about how the review process works?{" "}
+          <a
+            href="/faq"
+            className="text-gold hover:underline font-semibold"
+          >
+            See our FAQ →
+          </a>
+        </p>
       </div>
     </section>
   );
 }
 
 // ============================================================
-// SECTION 12 — LEAD FORM
+// SECTION 11 — LEAD FORM
 // ============================================================
 const countryOptions = [
   "Kenya",
@@ -1022,7 +961,7 @@ export default function DiasporaLanding() {
       <RoleClarity />
       <WhyLavan />
       <QuotationOffer />
-      <FAQ />
+      <FAQTeaser />
       <LeadForm />
       <StickyCTA />
     </div>

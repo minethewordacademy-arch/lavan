@@ -17,6 +17,8 @@ const divisions = [
     href: '/services/energy-engineering',
     label: 'Energy Engineering',
     services: [
+      // ✅ Diaspora landing page added as top item (high-visibility campaign)
+      { label: 'Diaspora Project Management', href: '/diaspora-solar-project-management' },
       { label: 'Energy Audit & Consultancy', href: '/services/energy-audit' },
       { label: 'System Design', href: '/services/energy-engineering' },
       { label: 'Load Assessments', href: '/services/energy-engineering' },
