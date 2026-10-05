@@ -1,89 +1,79 @@
 "use client";
 import { useState, type ChangeEvent } from 'react';
 import WatermarkImage from '@/components/WatermarkImage';
-
 // ============================================================
-// SECTION 1 — HERO (Centered, full-width, no image)
+// SECTION 1 — HERO (image at natural ratio, no crop, no deadspace)
 // ============================================================
 function Hero() {
   return (
-    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-linear-to-br from-navy to-navy-dark relative overflow-hidden">
-      {/* Decorative gold blur orbs */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl -mr-32"></div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl -ml-32"></div>
+    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-gradient-to-br from-navy to-navy-dark relative overflow-hidden">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Left — Copy */}
+        <div className="z-10">
+          <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-semibold mb-4">
+            🌍 For Kenyans Abroad
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Managing a Solar Project in Kenya From Abroad
+          </h1>
+          <p className="text-white/90 text-lg mb-6 max-w-xl">
+            Lavan represents your technical interests on the ground. We review designs and quotations, verify equipment, inspect installation work and document every major milestone from planning to handover.
+          </p>
+          <p className="text-white/70 text-sm mb-8 max-w-xl">
+            For Kenyans abroad who are building, renovating or upgrading homes and other property in Kenya.
+          </p>
 
-      <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-        {/* Badge */}
-        <span className="inline-block bg-gold/20 text-gold px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
-          🌍 For Kenyans Abroad
-        </span>
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <a
+              href="#lead-form"
+              data-event="project_review_cta_click"
+              className="bg-gold text-navy px-8 py-4 rounded-full font-bold hover:bg-white transition text-center"
+            >
+              Request a Project Review
+            </a>
+            <a
+              href="#quotation-upload"
+              data-event="quotation_review_cta_click"
+              className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:border-gold hover:text-gold transition text-center"
+            >
+              Send Us Your Solar Quotation
+            </a>
+          </div>
 
-        {/* H1 */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mb-6">
-          Managing a Solar Project in Kenya From Abroad
-        </h1>
-
-        {/* Lead paragraph */}
-        <p className="text-white/90 text-lg md:text-xl mb-4 max-w-3xl mx-auto leading-relaxed">
-          Lavan represents your technical interests on the ground. We review designs and quotations, verify equipment, inspect installation work and document every major milestone from planning to handover.
-        </p>
-
-        {/* Supporting line */}
-        <p className="text-white/60 text-sm md:text-base mb-10 max-w-2xl mx-auto">
-          For Kenyans abroad who are building, renovating or upgrading homes and other property in Kenya.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <a
-            href="#lead-form"
-            data-event="project_review_cta_click"
-            className="bg-gold text-navy px-8 py-4 rounded-full font-bold hover:bg-white transition text-center text-lg shadow-lg shadow-gold/20"
-          >
-            Request a Project Review
-          </a>
-          <a
-            href="#quotation-upload"
-            data-event="quotation_review_cta_click"
-            className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:border-gold hover:text-gold transition text-center text-lg"
-          >
-            Send Us Your Solar Quotation
-          </a>
+          <p className="text-white/60 text-sm">
+            Speak directly with an energy engineer in Kenya —{' '}
+            <a
+              href="https://wa.me/254100766486?text=Hello%20Lavan%2C%20I%27d%20like%20to%20speak%20about%20a%20solar%20project%20in%20Kenya."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="whatsapp_click"
+              className="text-gold hover:underline font-semibold"
+            >
+              WhatsApp Lavan
+            </a>
+          </p>
         </div>
 
-        {/* WhatsApp support line */}
-        <p className="text-white/60 text-sm">
-          Speak directly with an energy engineer in Kenya —{' '}
-          <a
-            href="https://wa.me/254100766486?text=Hello%20Lavan%2C%20I%27d%20like%20to%20speak%20about%20a%20solar%20project%20in%20Kenya."
-            target="_blank"
-            rel="noopener noreferrer"
-            data-event="whatsapp_click"
-            className="text-gold hover:underline font-semibold"
-          >
-            WhatsApp Lavan
-          </a>
-        </p>
-
-        {/* Trust markers */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
-            <p className="text-gold font-bold text-sm mb-1">Independent Review</p>
-            <p className="text-white/60 text-xs">Technical assessment you can trust</p>
-          </div>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
-            <p className="text-gold font-bold text-sm mb-1">On-the-Ground</p>
-            <p className="text-white/60 text-xs">Verification at every critical stage</p>
-          </div>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
-            <p className="text-gold font-bold text-sm mb-1">Documented</p>
-            <p className="text-white/60 text-xs">Structured reports for overseas clients</p>
+        {/* Right — Image displayed at its NATURAL aspect ratio */}
+        <div className="relative w-full">
+          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+            <WatermarkImage
+              src="/images/services/energy-engineering/solarpanel-engineering2.jpg"
+              alt="Lavan engineer inspecting solar equipment at a residential project in Kenya"
+              width={1200}
+              height={800}
+              watermarkSize={70}
+              watermarkStyle="seal"
+              className="block w-full"
+              priority
+            />
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 // ============================================================
 // SECTION 2 — RECOGNITION
 // ============================================================
@@ -624,7 +614,7 @@ function LeadForm() {
             <div>
               <label className="block text-sm font-semibold text-navy mb-1">Attach a Quotation (Optional)</label>
               <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" className="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gold/20 file:text-navy file:font-semibold hover:file:bg-gold/40" />
-              <p className="text-xs text-gray-500 mt-2">PDF, DOCX, XLSX, JPG, PNG.</p>
+              <p className="text-xs text-gray-500 mt-2">PDF, DOCX, XLSX, JPG, PNG. After submitting, please email the file to info@lavansolar.co.ke with the same subject line.</p>
             </div>
 
             <div className="flex items-start gap-3">
