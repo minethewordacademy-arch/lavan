@@ -4,6 +4,36 @@ import { useState, useEffect } from 'react';
 import WatermarkImage from '@/components/WatermarkImage';
 import PartnerLogos from '@/components/PartnerLogos';
 
+// ✅ Inline Kenyan flag SVG (renders identically on every device)
+function KenyaFlag({ className = "w-5 h-4" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 30 20"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Black band */}
+      <rect width="30" height="6" fill="#000000" />
+      {/* White separator */}
+      <rect y="6" width="30" height="1" fill="#FFFFFF" />
+      {/* Red band */}
+      <rect y="7" width="30" height="6" fill="#BB0000" />
+      {/* White separator */}
+      <rect y="13" width="30" height="1" fill="#FFFFFF" />
+      {/* Green band */}
+      <rect y="14" width="30" height="6" fill="#006600" />
+      {/* Maasai shield (simplified) */}
+      <ellipse cx="15" cy="10" rx="3" ry="7" fill="#FFFFFF" stroke="#000000" strokeWidth="0.4" />
+      <ellipse cx="15" cy="10" rx="2" ry="5.5" fill="#BB0000" />
+      <ellipse cx="15" cy="10" rx="1" ry="3.5" fill="#000000" />
+      {/* Crossed spears */}
+      <line x1="6" y1="3" x2="24" y2="17" stroke="#000000" strokeWidth="0.6" />
+      <line x1="24" y1="3" x2="6" y2="17" stroke="#000000" strokeWidth="0.6" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const slides = [
     { src: '/images/home/slide-1.jpg', alt: 'Residential Solar' },
@@ -30,13 +60,16 @@ export default function Home() {
   return (
     <>
       {/* Split Hero Section */}
-      <section className="pt-36 md:pt-40 bg-linear-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
+      <section className="pt-36 md:pt-40 bg-gradient-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Left Text */}
           <div className="z-10">
-            <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              ☀️ Kenya&apos;s Trusted Solar Partner
+            {/* ✅ Kenyan flag + badge */}
+            <span className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+              <KenyaFlag className="w-5 h-3.5 rounded-sm shadow-sm" />
+              <span>Kenya&apos;s Trusted Solar Partner</span>
             </span>
+
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
               Power Your Life with <span className="text-gold">Clean Energy</span>
             </h1>
@@ -75,7 +108,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="absolute inset-0 bg-linear-to-t from-navy/30 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
                 {slides.map((_, index) => (
                   <button
@@ -93,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Business Divisions - WITHOUT ICONS */}
+      {/* Core Business Divisions */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -105,26 +138,26 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <Link href="/services/energy-engineering" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Energy Engineering</h3>
-              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Audits, Load Assessments, System Design & Consultancy.</p>
+              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Audits, Load Assessments, System Design &amp; Consultancy.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
             </Link>
 
             <Link href="/services/solar-pv" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Solar PV Systems</h3>
-              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar PV, Hybrid, Battery Storage & Backup Power.</p>
+              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar PV, Hybrid, Battery Storage &amp; Backup Power.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
             </Link>
 
             <Link href="/services/thermal-energy" className="group bg-light-bg p-10 rounded-3xl hover:bg-navy transition-colors duration-500 hover:shadow-2xl">
               <h3 className="text-2xl font-extrabold text-navy group-hover:text-white mb-4">Thermal Energy</h3>
-              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar Water Heating, Heat Pumps & Commercial Hot Water.</p>
+              <p className="text-gray-600 group-hover:text-white/80 leading-relaxed mb-6">Solar Water Heating, Heat Pumps &amp; Commercial Hot Water.</p>
               <span className="text-gold font-bold group-hover:text-gold-light">Explore →</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats Section - with Megawatts */}
+      {/* Stats Section */}
       <section className="py-16 bg-light-bg">
         <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 px-4 text-center">
           <div><h2 className="text-4xl font-extrabold text-navy">30+</h2><p className="text-gray-500 mt-2 text-sm uppercase">Projects</p></div>
@@ -138,7 +171,7 @@ export default function Home() {
       {/* Partners Marquee */}
       <PartnerLogos />
 
-      {/* How We Work / Process Section (6 steps) */}
+      {/* How We Work / Process Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -169,12 +202,10 @@ export default function Home() {
 
       {/* Why Choose Lavan Section */}
       <section className="py-20 bg-navy relative overflow-hidden">
-        {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* Proposition Banner */}
           <div className="text-center mb-16">
             <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
               Our Fundamental Proposition
@@ -188,9 +219,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Why Choose Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,7 +232,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +244,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,7 +256,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 4 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -242,7 +268,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 5 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,7 +280,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 6 */}
             <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300">
               <div className="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-5 text-navy">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +293,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Statement */}
           <div className="mt-16 bg-gold/10 border border-gold/30 rounded-2xl p-8 text-center">
             <p className="text-white text-lg md:text-xl italic leading-relaxed max-w-4xl mx-auto">
               <span className="text-gold font-bold">&ldquo;</span>

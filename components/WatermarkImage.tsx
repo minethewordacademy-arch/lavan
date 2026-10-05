@@ -14,6 +14,8 @@ interface WatermarkImageProps {
   watermarkSize?: number;
   watermarkPosition?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right' | 'center';
   watermarkStyle?: 'corner' | 'seal';
+  /** How the image fits inside its container when `fill` is used */
+  objectFit?: 'cover' | 'contain';
 }
 
 export default function WatermarkImage({
@@ -29,6 +31,7 @@ export default function WatermarkImage({
   watermarkSize = 80,
   watermarkPosition = 'bottom-right',
   watermarkStyle = 'corner',
+  objectFit = 'cover',
 }: WatermarkImageProps) {
   const positionClasses = {
     'bottom-left': 'bottom-2 left-2',
@@ -37,6 +40,9 @@ export default function WatermarkImage({
     'top-right': 'top-2 right-2',
     'center': 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2',
   };
+
+  // Use a lookup so Tailwind picks up the class at build time
+  const objectFitClass = objectFit === 'contain' ? 'object-contain' : 'object-cover';
 
   return (
     <div className={`relative ${fill ? 'w-full h-full' : 'inline-block'} ${className}`}>
@@ -49,9 +55,13 @@ export default function WatermarkImage({
         sizes={sizes}
         priority={priority}
         loading={loading}
-        className={fill ? 'object-cover object-center' : 'w-full h-auto object-cover'}
+        className={
+          fill
+            ? `${objectFitClass} object-center`
+            : 'w-full h-auto object-cover'
+        }
       />
-      
+
       {watermarkStyle === 'corner' ? (
         <div className={`pointer-events-none absolute ${positionClasses[watermarkPosition]} opacity-30 z-10`}>
           <Image

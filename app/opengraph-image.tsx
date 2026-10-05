@@ -1,7 +1,5 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
 export default async function OpengraphImage() {
   return new ImageResponse(
     (

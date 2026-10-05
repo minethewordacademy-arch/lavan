@@ -15,6 +15,7 @@ export const staticRoutes = [
   '/services/power-backup',
   '/services/solar-pumping',
   '/services/thermal-energy',
+  '/diaspora-solar-project-management', // ✅ New
   '/faq',
   '/contact',
   '/blog',
