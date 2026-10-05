@@ -4,35 +4,6 @@ import { useState, useEffect } from 'react';
 import WatermarkImage from '@/components/WatermarkImage';
 import PartnerLogos from '@/components/PartnerLogos';
 
-// ✅ Inline Kenyan flag SVG (renders identically on every device)
-function KenyaFlag({ className = "w-5 h-4" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 30 20"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Black band */}
-      <rect width="30" height="6" fill="#000000" />
-      {/* White separator */}
-      <rect y="6" width="30" height="1" fill="#FFFFFF" />
-      {/* Red band */}
-      <rect y="7" width="30" height="6" fill="#BB0000" />
-      {/* White separator */}
-      <rect y="13" width="30" height="1" fill="#FFFFFF" />
-      {/* Green band */}
-      <rect y="14" width="30" height="6" fill="#006600" />
-      {/* Maasai shield (simplified) */}
-      <ellipse cx="15" cy="10" rx="3" ry="7" fill="#FFFFFF" stroke="#000000" strokeWidth="0.4" />
-      <ellipse cx="15" cy="10" rx="2" ry="5.5" fill="#BB0000" />
-      <ellipse cx="15" cy="10" rx="1" ry="3.5" fill="#000000" />
-      {/* Crossed spears */}
-      <line x1="6" y1="3" x2="24" y2="17" stroke="#000000" strokeWidth="0.6" />
-      <line x1="24" y1="3" x2="6" y2="17" stroke="#000000" strokeWidth="0.6" />
-    </svg>
-  );
-}
 
 export default function Home() {
   const slides = [
@@ -60,13 +31,13 @@ export default function Home() {
   return (
     <>
       {/* Split Hero Section */}
-      <section className="pt-36 md:pt-40 bg-gradient-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
+      <section className="pt-36 md:pt-40 bg-linear-to-br from-navy to-navy-dark pb-16 md:pb-24 relative overflow-hidden">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Left Text */}
           <div className="z-10">
             {/* ✅ Kenyan flag + badge */}
             <span className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-              <KenyaFlag className="w-5 h-3.5 rounded-sm shadow-sm" />
+
               <span>Kenya&apos;s Trusted Solar Partner</span>
             </span>
 
@@ -108,7 +79,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-navy/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
                 {slides.map((_, index) => (
                   <button

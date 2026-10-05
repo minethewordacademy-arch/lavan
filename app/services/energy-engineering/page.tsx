@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function EnergyEngineeringPage() {
   return (
     <div className="pt-36 md:pt-40 bg-white">
+      {/* HERO */}
       <div className="relative h-100 md:h-125 overflow-hidden">
         <WatermarkImage
           src="/images/services/energy-engineering/solarpanel-engineering.jpg"
@@ -33,12 +34,13 @@ export default function EnergyEngineeringPage() {
         </div>
       </div>
 
+      {/* WHAT WE DO */}
       <section className="py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-8 text-center">
             What We Do
           </h2>
-          <p className="text-gray-700 text-lg mb-12 text-center max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg text-center max-w-3xl mx-auto">
             Lavan Solar Systems Limited provides end-to-end solar solutions
             designed to reduce electricity costs, improve energy reliability,
             and support long-term sustainability goals. Our visible service
@@ -49,6 +51,38 @@ export default function EnergyEngineeringPage() {
         </div>
       </section>
 
+      {/* ✅ DIASPORA CARD — NOW IMMEDIATELY AFTER WHAT WE DO */}
+      <section className="pb-20 bg-white">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <Link
+            href="/diaspora-solar-project-management"
+            className="block bg-gradient-to-br from-navy to-navy-light p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition transform hover:-translate-y-1 border-l-4 border-gold"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+              <div className="md:col-span-2">
+                <span className="inline-block bg-gold/20 text-gold px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
+                  For Kenyans Abroad
+                </span>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
+                  Diaspora Solar Project Management &amp; Owner Representation
+                </h3>
+                <p className="text-white/80 leading-relaxed">
+                  Independent solar project review, equipment verification,
+                  installation oversight and documented handover — for overseas
+                  clients building or renovating property in Kenya.
+                </p>
+              </div>
+              <div className="text-center md:text-right">
+                <span className="inline-block bg-gold text-navy px-6 py-3 rounded-full font-bold">
+                  Learn More →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* OUR ENGINEERING SERVICES */}
       <section className="py-20 bg-light-bg">
         <div className="container mx-auto px-6 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">
@@ -109,7 +143,6 @@ export default function EnergyEngineeringPage() {
                 key={service.title}
                 className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-gold hover:shadow-2xl transition"
               >
-                {/* Replaced emoji with SVG checkmark in gold circle */}
                 <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center mb-4">
                   <svg
                     className="w-5 h-5 text-white"
@@ -134,37 +167,8 @@ export default function EnergyEngineeringPage() {
           </div>
         </div>
       </section>
-      {/* Diaspora Solar Project Management — Campaign Card */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <Link
-            href="/diaspora-solar-project-management"
-            className="block bg-gradient-to-br from-navy to-navy-light p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition transform hover:-translate-y-1 border-l-4 border-gold"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <div className="md:col-span-2">
-                <span className="inline-block bg-gold/20 text-gold px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                  For Kenyans Abroad
-                </span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
-                  Diaspora Solar Project Management & Owner Representation
-                </h3>
-                <p className="text-white/80 leading-relaxed">
-                  Independent solar project review, equipment verification,
-                  installation oversight and documented handover — for overseas
-                  clients building or renovating property in Kenya.
-                </p>
-              </div>
-              <div className="text-center md:text-right">
-                <span className="inline-block bg-gold text-navy px-6 py-3 rounded-full font-bold">
-                  Learn More →
-                </span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
 
+      {/* PRODUCTS WE DESIGN WITH */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-12 text-center">
@@ -211,6 +215,7 @@ export default function EnergyEngineeringPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-6 text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">

@@ -6,12 +6,12 @@ import WatermarkImage from "@/components/WatermarkImage";
 // ============================================================
 function Hero() {
   return (
-    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-gradient-to-br from-navy to-navy-dark relative overflow-hidden">
+    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-linear-to-br from-navy to-navy-dark relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Left — Copy */}
         <div className="z-10">
           <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-semibold mb-4">
-            🌍 For Kenyans Abroad
+            For Kenyans Abroad
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
             Managing a Solar Project in Kenya From Abroad

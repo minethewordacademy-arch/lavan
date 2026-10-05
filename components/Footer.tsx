@@ -14,10 +14,10 @@ const quickLinks = [
 
 const divisionLinks = [
   // ✅ Diaspora landing page added as top item
-  { href: '/diaspora-solar-project-management', label: '🌍 Diaspora Project Management' },
   { href: '/services/energy-engineering', label: 'Energy Engineering' },
   { href: '/services/solar-pv', label: 'Solar PV Systems' },
   { href: '/services/thermal-energy', label: 'Thermal Energy' },
+  { href: '/diaspora-solar-project-management', label: 'Diaspora Project Management' },
   { href: '/quote', label: 'Get a Quote' },
 ];
 
