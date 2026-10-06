@@ -16,8 +16,21 @@ const pathToService: Record<string, string> = {
   '/products': 'solar-pv',
 };
 
+// ✅ Pages where the floating quote button should be hidden
+const hiddenOn: string[] = [
+  '/diaspora-solar-project-management',
+  '/quote',
+  '/contact',
+];
+
 export default function FloatingQuoteButton() {
   const pathname = usePathname();
+
+  // Return null (render nothing) on pages where it would conflict
+  if (hiddenOn.includes(pathname)) {
+    return null;
+  }
+
   const service = pathToService[pathname] || 'general-inquiry';
 
   return (

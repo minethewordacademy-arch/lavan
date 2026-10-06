@@ -7,7 +7,7 @@ import WatermarkImage from "@/components/WatermarkImage";
 // ============================================================
 function Hero() {
   return (
-    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-gradient-to-br from-navy to-navy-dark relative overflow-hidden">
+    <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-linear-to-br from-navy to-navy-dark relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Left — Copy */}
         <div className="z-10">
@@ -544,7 +544,7 @@ function QuotationOffer() {
   return (
     <section
       id="quotation-upload"
-      className="py-20 bg-gradient-to-br from-gold to-gold-light"
+      className="py-20 bg-linear-to-br from-gold to-gold-light"
     >
       <div className="container mx-auto px-6 max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-4">
