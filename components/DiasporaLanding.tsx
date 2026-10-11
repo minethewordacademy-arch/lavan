@@ -1,15 +1,15 @@
 "use client";
-import { useState, useEffect, type ChangeEvent } from "react";
-import Link from "next/link";
+import { useState, type ChangeEvent } from "react";
 import WatermarkImage from "@/components/WatermarkImage";
 
 // ============================================================
-// SECTION 1 — HERO
+// SECTION 1 — HERO (image at natural ratio, no crop, no deadspace)
 // ============================================================
 function Hero() {
   return (
     <section className="pt-36 md:pt-40 pb-16 md:pb-24 bg-linear-to-br from-navy to-navy-dark relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Left — Copy */}
         <div className="z-10">
           <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-semibold mb-4">
             For Kenyans Abroad
@@ -58,6 +58,7 @@ function Hero() {
           </p>
         </div>
 
+        {/* Right — Image displayed at its NATURAL aspect ratio */}
         <div className="relative w-full">
           <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
             <WatermarkImage
@@ -345,6 +346,7 @@ function Process() {
           </h2>
         </div>
 
+        {/* Desktop table */}
         <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200">
           <table className="w-full text-sm">
             <thead className="bg-navy text-white">
@@ -376,6 +378,7 @@ function Process() {
           </table>
         </div>
 
+        {/* Mobile stacked cards */}
         <div className="md:hidden space-y-4">
           {processStages.map((s) => (
             <div
@@ -570,7 +573,7 @@ function QuotationOffer() {
 }
 
 // ============================================================
-// FAQ TEASER
+// FAQ TEASER (links to full FAQ page)
 // ============================================================
 function FAQTeaser() {
   return (
@@ -578,12 +581,12 @@ function FAQTeaser() {
       <div className="container mx-auto px-6 max-w-3xl text-center">
         <p className="text-gray-600">
           Have questions about how the review process works?{" "}
-          <Link
+          <a
             href="/faq"
             className="text-gold hover:underline font-semibold"
           >
             See our FAQ →
-          </Link>
+          </a>
         </p>
       </div>
     </section>
@@ -650,21 +653,12 @@ function LeadForm() {
     consent: false,
   });
 
-  const [file, setFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<
-    "idle" | "submitting" | "success" | "error"
-  >("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  // ✅ Event listener with proper cleanup (no memory leak)
-  useEffect(() => {
-    const handler = (e: Event) => {
+  if (typeof window !== "undefined") {
+    window.addEventListener("setSupportType", (e: Event) => {
       const ce = e as CustomEvent;
       setForm((prev) => ({ ...prev, supportRequired: ce.detail }));
-    };
-    window.addEventListener("setSupportType", handler);
-    return () => window.removeEventListener("setSupportType", handler);
-  }, []);
+    });
+  }
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -673,139 +667,22 @@ function LeadForm() {
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
-  // ✅ File size validation (5MB limit)
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const selected = e.target.files?.[0] || null;
-
-    if (selected && selected.size > 5 * 1024 * 1024) {
-      setErrorMsg(
-        "File is too large. Maximum size is 5MB. Please upload a smaller file.",
-      );
-      setStatus("error");
-      e.target.value = ""; // clear the input
-      setFile(null);
-      return;
-    }
-
-    setErrorMsg("");
-    setStatus("idle");
-    setFile(selected);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("submitting");
-    setErrorMsg("");
-
-    try {
-      const formData = new FormData();
-
-      // Web3Forms Access Key
-      formData.append("access_key", "632b53ed-0ba5-4fba-bd82-3c916260f5d5");
-
-      // 🛡️ Honeypot field for spam protection
-      formData.append("botcheck", "");
-
-      formData.append(
-        "subject",
-        `Diaspora Project Review Request — ${form.fullName}`,
-      );
-      formData.append("from_name", "Lavan Solar Website");
-      formData.append("Full Name", form.fullName);
-      formData.append("Email", form.email);
-      formData.append("WhatsApp", form.whatsapp);
-      formData.append("Country", form.country);
-      formData.append("Project Location", form.projectLocation);
-      formData.append("Project Type", form.projectType);
-      formData.append("Project Stage", form.projectStage);
-      formData.append("Support Required", form.supportRequired);
-      formData.append("Timeline", form.targetTimeline);
-      formData.append("Project Details", form.projectDetails);
-
-      if (file) {
-        formData.append("attachment", file);
-      }
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        setStatus("success");
-        setForm({
-          fullName: "",
-          email: "",
-          whatsapp: "",
-          country: "Kenya",
-          projectLocation: "",
-          projectType: "New home",
-          projectStage: "Planning",
-          supportRequired: "Quotation review",
-          targetTimeline: "Within one month",
-          projectDetails: "",
-          consent: false,
-        });
-        setFile(null);
-      } else {
-        setStatus("error");
-        setErrorMsg(
-          data.message ||
-            "Something went wrong. Please try again or email us directly.",
-        );
-      }
-    } catch {
-      // ✅ No unused variable
-      setStatus("error");
-      setErrorMsg(
-        "Network error. Please check your connection or email us directly at info@lavansolar.co.ke.",
-      );
-    }
+    const subject = `Diaspora Project Review Request — ${form.fullName}`;
+    const body =
+      `Full Name: ${form.fullName}%0A` +
+      `Email: ${form.email}%0A` +
+      `WhatsApp: ${form.whatsapp}%0A` +
+      `Country: ${form.country}%0A` +
+      `Project Location: ${form.projectLocation}%0A` +
+      `Project Type: ${form.projectType}%0A` +
+      `Project Stage: ${form.projectStage}%0A` +
+      `Support Required: ${form.supportRequired}%0A` +
+      `Timeline: ${form.targetTimeline}%0A%0A` +
+      `Project Details:%0A${form.projectDetails}`;
+    window.location.href = `mailto:info@lavansolar.co.ke?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
-
-  // Success state
-  if (status === "success") {
-    return (
-      <section id="lead-form" className="py-20 bg-light-bg">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <div className="bg-white p-10 md:p-14 rounded-3xl shadow-xl text-center">
-            <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <h2 className="text-3xl font-extrabold text-navy mb-4">
-              Thank you.
-            </h2>
-            <p className="text-gray-600 text-lg mb-8 max-w-xl mx-auto">
-              We have received your project details. A member of the Lavan
-              team will review the information and contact you using the
-              details provided.
-            </p>
-            {/* ✅ Uses Link now instead of <a> */}
-            <Link
-              href="/"
-              className="inline-block bg-navy text-white px-8 py-3 rounded-full font-bold hover:bg-gold hover:text-navy transition"
-            >
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="lead-form" className="py-20 bg-light-bg">
@@ -986,15 +863,11 @@ function LeadForm() {
               </label>
               <input
                 type="file"
-                name="attachment"
                 accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
-                onChange={handleFileChange}
                 className="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gold/20 file:text-navy file:font-semibold hover:file:bg-gold/40"
               />
               <p className="text-xs text-gray-500 mt-2">
-                {file
-                  ? `✅ ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB) — attached`
-                  : "PDF, DOCX, XLSX, JPG, PNG (max 5MB)."}
+                PDF, DOCX, XLSX, JPG, PNG.
               </p>
             </div>
 
@@ -1018,20 +891,11 @@ function LeadForm() {
               </label>
             </div>
 
-            {status === "error" && (
-              <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-sm">
-                {errorMsg}
-              </div>
-            )}
-
             <button
               type="submit"
-              disabled={status === "submitting"}
-              className="w-full bg-navy text-white py-4 rounded-full font-bold text-lg hover:bg-gold hover:text-navy transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-navy text-white py-4 rounded-full font-bold text-lg hover:bg-gold hover:text-navy transition"
             >
-              {status === "submitting"
-                ? "Sending your request..."
-                : "Request My Project Review"}
+              Request My Project Review
             </button>
           </form>
         </div>
