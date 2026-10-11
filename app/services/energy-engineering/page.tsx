@@ -56,7 +56,7 @@ export default function EnergyEngineeringPage() {
         <div className="container mx-auto px-6 max-w-6xl">
           <Link
             href="/diaspora-solar-project-management"
-            className="block bg-gradient-to-br from-navy to-navy-light p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition transform hover:-translate-y-1 border-l-4 border-gold"
+            className="block bg-linear-to-br from-navy to-navy-light p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition transform hover:-translate-y-1 border-l-4 border-gold"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
               <div className="md:col-span-2">
